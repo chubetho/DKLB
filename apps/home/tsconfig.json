@@ -1,0 +1,6 @@
+{
+  "extends": "@dklb/tsconfig/base.json",
+  "compilerOptions": {
+    "types": ["vite/client", "unplugin-icons/types/vue"]
+  }
+}

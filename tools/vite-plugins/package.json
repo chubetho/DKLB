@@ -1,0 +1,14 @@
+{
+  "name": "@dklb/vite-plugins",
+  "type": "module",
+  "version": "1.0.0",
+  "private": "true",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "@dklb/mfe-config": "workspace:^",
+    "@originjs/vite-plugin-federation": "^1.3.5"
+  }
+}

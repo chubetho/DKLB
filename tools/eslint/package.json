@@ -1,0 +1,16 @@
+{
+  "name": "@dklb/eslint-config",
+  "type": "module",
+  "version": "1.0.0",
+  "private": "true",
+  "files": [
+    "./eslint.config.js"
+  ],
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.20.0",
+    "eslint": "^9.4.0"
+  }
+}

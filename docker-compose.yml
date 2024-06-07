@@ -1,0 +1,14 @@
+services:
+  apps:
+    build:
+      context: .
+      dockerfile: Dockerfile.apps
+    ports:
+      - '8000-8002:8000-8002'
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - '3000:3000'

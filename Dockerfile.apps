@@ -1,0 +1,16 @@
+FROM oven/bun:slim as build
+WORKDIR /dklb
+COPY . .
+RUN bun i --production && bun run build
+
+FROM nginx:alpine
+WORKDIR /usr/share/nginx/html
+RUN rm -rf * && rm -f /etc/nginx/conf.d/default.conf
+COPY .nginx/*.conf /etc/nginx/conf.d
+
+COPY --from=build /dklb/apps/shell/dist shell
+COPY --from=build /dklb/apps/home/dist home
+COPY --from=build /dklb/apps/lotto/dist lotto
+
+EXPOSE 8000-8002
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

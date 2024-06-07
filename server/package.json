@@ -1,0 +1,18 @@
+{
+  "name": "@dklb/api",
+  "type": "module",
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "dev": "NODE_ENV=DEV bun --watch run src/index.ts",
+    "start": "NODE_ENV=PROD bun run src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.0.2",
+    "elysia": "^1.0.22"
+  },
+  "devDependencies": {
+    "@dklb/eslint-config": "workspace:^",
+    "@dklb/tsconfig": "workspace:^",
+    "@types/bun": "latest"
+  }
+}

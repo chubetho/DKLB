@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "antfu.goto-alias",
+    "dbaeumer.vscode-eslint",
+    "EditorConfig.EditorConfig",
+    "vue.volar",
+    "bradlc.vscode-tailwindcss"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "dklb",
+  "type": "module",
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "server",
+    "packages/*",
+    "tools/*"
+  ],
+  "scripts": {
+    "start": "bun run start:shell & bun run start:apps",
+    "build": "bun run build:ui && bun run build:apps && bun run build:shell",
+    "dev:server": "bun run --filter ./server dev",
+    "start:server": "bun run --filter ./server start",
+    "dev:shell": "bun run --filter ./apps/shell dev",
+    "start:shell": "bun run --filter ./apps/shell preview",
+    "start:apps": "bun --filter '@dklb/remote*' preview",
+    "build:apps": "bun --filter '@dklb/remote*' --filter @dklb/ui build",
+    "build:apps:watch": "bun --filter '@dklb/remote*' build:watch",
+    "build:shell": "bun run --filter ./apps/shell build",
+    "build:ui": "bun --filter ./packages/ui build",
+    "build:ui:watch": "bun --filter ./packages/ui build:watch",
+    "prepare:docker": "bun run scripts/docker.ts",
+    "create:app": "bun run scripts/create_app.ts",
+    "postinstall": "bunx simple-git-hooks"
+  },
+  "devDependencies": {
+    "@clack/prompts": "^0.7.0",
+    "@dklb/eslint-config": "workspace:^",
+    "@types/bun": "^1.1.3",
+    "lint-staged": "^15.2.5",
+    "simple-git-hooks": "^2.11.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bun lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
