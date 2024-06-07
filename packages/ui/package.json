@@ -53,6 +53,7 @@
     "vite": "^5.2.13",
     "vite-plugin-dts": "^3.9.1",
     "vitest": "^1.6.0",
+    "vue-router-mock": "^1.1.0",
     "vue-tsc": "^2.0.19"
   }
 }
