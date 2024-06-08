@@ -11,7 +11,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "preview": "bun run vite preview",
-    "typecheck": "vue-tsc --noEmit",
+    "typecheck": "vue-tsc",
     "lint": "eslint ."
   },
   "dependencies": {
