@@ -10,9 +10,7 @@
 ### Using Vite
 
 1. Build `bun run build`
-3. Start apps `bun run start:apps`
-4. Start shell `bun run start:shell`
-5. Start server `bun run start:server`
+2. Start `bun run start`
 
 ### Using docker
 
