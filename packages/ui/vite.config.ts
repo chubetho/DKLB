@@ -1,7 +1,6 @@
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import dts from 'vite-plugin-dts'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
@@ -16,7 +15,6 @@ export default defineConfig({
       scale: 1,
       defaultClass: 'block text-2xl',
     }),
-    dts({ include: 'src/**/*', exclude: ['src/**/*.test.ts'] }),
     AutoImport({
       imports: ['vue', 'vitest'],
       dirs: ['./src/composables'],
@@ -42,7 +40,7 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: ['vue', 'vue-router'],
+      external: ['vue', 'vue-router', '@vueuse/core'],
       output: { globals: { vue: 'Vue' } },
       onwarn: (warning, warn) => {
         // silent "createCommentVNode" is imported from external module "vue" but never used in
