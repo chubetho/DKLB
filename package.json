@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "start": "bun run start:server & bun run start:shell & bun run start:apps",
-    "build": "bun run build:ui && bun run build:apps && bun run build:shell",
+    "build": "bun run build:ui && bun run build:ui:types && bun run build:apps && bun run build:shell",
     "dev:server": "bun run --filter ./server dev",
     "start:server": "bun run --filter ./server start",
     "dev:shell": "bun run --filter ./apps/shell dev",
@@ -21,7 +21,7 @@
     "build:apps:watch": "bun --filter '@dklb/remote*' build:watch",
     "dev:ui": "bun --filter ./packages/ui dev",
     "build:ui": "bun --filter ./packages/ui build",
-    "build:ui:watch": "bun --filter ./packages/ui build:watch",
+    "build:ui:types": "bun --filter ./packages/ui build:types",
     "prepare:docker": "bun run scripts/docker.ts",
     "create:app": "bun run scripts/create_app.ts",
     "postinstall": "bunx simple-git-hooks"

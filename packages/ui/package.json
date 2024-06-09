@@ -18,7 +18,8 @@
   "scripts": {
     "vite": "bunx --bun vite",
     "dev": "bun run vite",
-    "build": "bun run vite build && vue-tsc -p tsconfig.build.json",
+    "build": "bun run vite build",
+    "build:types": "vue-tsc -p tsconfig.types.json",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "vue-tsc",

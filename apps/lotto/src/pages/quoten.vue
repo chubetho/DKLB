@@ -107,10 +107,12 @@ function formatWinningClass(n = 0) {
       </div>
 
       <p
-        v-if="result.lottoTurnover[0]"
+        v-if="result.lottoTurnover"
         class="text-sm mt-3"
       >
-        <span class="mr-6">Spieleinsatz: {{ formatCurrency(result.lottoTurnover[0].amount) }} </span>
+        <span v-if="result.lottoTurnover[0]" class="mr-6">
+          Spieleinsatz: {{ formatCurrency(result.lottoTurnover[0].amount) }}
+        </span>
         <span>* Jackpot-Vortrag / max. Gewinnbetrag: 50 Mio. €</span>
       </p>
     </template>
