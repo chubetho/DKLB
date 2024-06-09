@@ -15,4 +15,4 @@
 ### Using docker
 
 1. Prepare docker `bun run prepare:docker`
-2. Build images `docker-compose up --build`
+2. Build images `docker compose up --build`
