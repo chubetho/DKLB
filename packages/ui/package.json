@@ -30,7 +30,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.3"
   },
   "devDependencies": {
     "@dklb/eslint-config": "workspace:^",

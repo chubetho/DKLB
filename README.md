@@ -16,3 +16,31 @@
 
 1. Prepare docker `bun run prepare:docker`
 2. Build images `docker compose up --build`
+
+## How to develop
+
+### To create route in a app
+
+Routes are registered based on folder structure. For examples:
+
+- `/`: `apps/home/src/pages/+index.vue`
+- `/about`: `apps/home/src/pages/about.vue`
+- `/services/news`: `apps/home/src/pages/services/news.vue`
+
+### To create new MicroFrontend
+
+1. In terminal run `bun run create:app`
+2. Enter folder name. For e.g. `eurojackpot`
+3. Enter prefix. For e.g. `/eurojackpot`
+4. Others
+
+### To start developing
+
+Run each commands in a terminal
+
+1. `bun run dev:server`
+2. `bun run dev:shell`
+3. `bun run build:apps:watch`
+4. `bun run start:apps`
+5. `bun run build:ui` (optional)
+6. `bun run build:ui:types` (optional)

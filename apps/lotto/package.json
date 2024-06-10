@@ -19,7 +19,7 @@
     "@vueuse/core": "^10.10.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.3"
   },
   "devDependencies": {
     "@dklb/eslint-config": "workspace:^",
