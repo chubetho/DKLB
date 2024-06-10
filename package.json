@@ -11,6 +11,7 @@
   "scripts": {
     "start": "bun run start:server & bun run start:shell & bun run start:apps",
     "build": "bun run build:ui && bun run build:ui:types && bun run build:apps && bun run build:shell",
+    "test": "bun run --filter '*' test",
     "dev:server": "bun run --filter ./server dev",
     "start:server": "bun run --filter ./server start",
     "dev:shell": "bun run --filter ./apps/shell dev",
