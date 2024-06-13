@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@dklb/ui": "workspace:^",
-    "@vueuse/core": "^10.10.0",
+    "@vueuse/core": "^10.11.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.27",
     "vue-router": "^4.3.3"
