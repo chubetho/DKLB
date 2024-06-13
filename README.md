@@ -20,21 +20,23 @@
 
 1. Build `bun run build`
 2. Start `bun run start`
+3. Navigate to http://localhost:8000/
 
 ### Using docker
 
 1. Prepare docker `bun run prepare:docker`
 2. Build images `docker compose up --build`
-
+3. Navigate to http://localhost:8000/
 ## How to develop
 
 ### To create route in a app
 
 Routes are registered based on folder structure. For examples:
 
-- `/`: `apps/home/src/pages/+index.vue`
 - `/about`: `apps/home/src/pages/about.vue`
-- `/services/news`: `apps/home/src/pages/services/news.vue`
+- `/lotto6aus49/trends`: `apps/lotto/src/pages/trends.vue`
+
+Also checking for `tools/mfe-config/index.js`.
 
 ### To create new MicroFrontend
 
