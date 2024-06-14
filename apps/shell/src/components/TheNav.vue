@@ -30,7 +30,7 @@ const links = [
       </div>
     </div>
 
-    <div class="font-bold bg-[#fd0]">
+    <div class="font-bold bg-[#fd0] shadow-lg">
       <div class="flex max-w-[1170px] mx-auto px-5">
         <div class="flex items-center mr-auto h-[56px]">
           <RouterLink to="/" class="text-red-600 text-3xl font-bold">
