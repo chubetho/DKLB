@@ -25,7 +25,7 @@ const {
   yearsOpts: yearsAwOpts,
 } = useFetchGcKey('totoaw')
 const resultAw = shallowRef<App['_routes']['getTotoAwHistoricNumbers']['get']['response']['200'] | null>(null)
-watch(keyEw, (gckey) => {
+watch(keyAw, (gckey) => {
   gckey && api.getTotoAwHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
     resultAw.value = data
   })
