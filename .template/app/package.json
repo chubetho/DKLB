@@ -19,7 +19,7 @@
     "@elysiajs/eden": "^1.0.14",
     "@vueuse/core": "^10.11.0",
     "pinia": "^2.1.7",
-    "vue": "^3.4.28",
+    "vue": "^3.4.29",
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.19",
     "elysia": "^1.0.23",
-    "eslint": "^9.4.0",
+    "eslint": "^9.5.0",
     "jsdom": "^24.1.0",
     "postcss": "8.4.38",
     "tailwindcss": "3.4.3",

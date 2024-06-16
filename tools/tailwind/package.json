@@ -18,7 +18,7 @@
   "devDependencies": {
     "@dklb/eslint-config": "workspace:^",
     "@dklb/tsconfig": "workspace:^",
-    "eslint": "^9.4.0",
+    "eslint": "^9.5.0",
     "typescript": "^5.4.5"
   }
 }
