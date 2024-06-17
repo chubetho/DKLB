@@ -1,17 +1,14 @@
 import { Elysia } from 'elysia'
 import { cors } from '@elysiajs/cors'
-import { getNumbers } from './routes'
+import { numbers } from './routes/numbers'
 
 export const PORT = import.meta.env.PORT || 3000
 
 const app = new Elysia()
-  .use(cors({
-    origin(req) {
-      return req.headers.get('origin') === 'http://localhost:8000'
-    },
-  }))
-
-  .use(getNumbers())
+  // plugins
+  .use(cors({ origin: /http:\/\/localhost:8000/ }))
+  // routes
+  .use(numbers())
 
   .listen(3000)
 

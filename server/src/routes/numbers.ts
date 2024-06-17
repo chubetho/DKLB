@@ -1,5 +1,5 @@
 import { Elysia, t } from 'elysia'
-import { middleware } from './utils'
+import { middleware } from '../utils'
 
 interface Draw {
   cycleNo: number
@@ -30,22 +30,8 @@ interface EurojackpotResult extends BaseResult {
 }
 
 interface GluecksSpiraleResult extends BaseResult {
-  gluecksSpiraleGameCycle: {
-    cycleNo: number
-    cycleYear: number
-    eventDate: number
-    eventWeekday: number
-    key: string
-    variantNo: number
-  }
-  siegerChanceGameCycle: {
-    cycleNo: number
-    cycleYear: number
-    eventDate: number
-    eventWeekday: number
-    key: string
-    variantNo: number
-  }
+  gluecksSpiraleGameCycle: Draw
+  siegerChanceGameCycle: Draw
   gluecksSpiraleNumbers: {
     1: string[]
     2: string[]
@@ -77,87 +63,55 @@ interface KenoResult extends BaseResult {
   plus5Number: string
 }
 
+interface TotoGameTable {
+  eventNo: number
+  team1: string
+  team2: string
+  teamShort1: string
+  teamShort2: string
+  tendency: string
+  team1Result: number
+  team2Result: number
+  alternativeResult: number
+}
+
 interface TotoEwResult extends BaseResult {
   numbersInDrawOrder: number[]
-  totoEwGameTable: {
-    eventNo: number
-    team1: string
-    team2: string
-    teamShort1: string
-    teamShort2: string
-    tendency: string
-    team1Result: number
-    team2Result: number
-    alternativeResult: number
-  }[]
+  totoEwGameTable: TotoGameTable[]
 }
 
 interface TotoAwResult extends BaseResult {
   numbersInNaturalOrder: number[]
   numbersInDrawOrder: number[]
   additionalNumber: number
-  totoAwGameTable: {
-    eventNo: number
-    team1: string
-    team2: string
-    teamShort1: string
-    teamShort2: string
-    tendency: string
-    team1Result: number
-    team2Result: number
-    alternativeResult: number
-  }[]
+  totoAwGameTable: TotoGameTable[]
+}
+interface Odd {
+  amount: number
+  numberOfWins: number
+  winningClass: number
+  sequence: number
+  jackpot: boolean
+}
+
+interface Turnover {
+  amount: number
+  jurisdiction: number
 }
 
 interface LottoOdds extends BaseResult {
-  lottoOdds1: {
-    amount: number
-    numberOfWins: number
-    winningClass: number
-    sequence: number
-    jackpot: boolean
-  }[]
-  spiel77Odds: {
-    amount: number
-    numberOfWins: number
-    winningClass: number
-    sequence: number
-    jackpot: boolean
-  }[]
-  super6Odds: {
-    amount: number
-    numberOfWins: number
-    winningClass: number
-    sequence: number
-    jackpot: boolean
-  }[]
-  lottoTurnover: {
-    amount: number
-    jurisdiction: number
-  }[]
-  spiel77Turnover: {
-    amount: number
-    jurisdiction: number
-  }[]
-  super6Turnover: {
-    amount: number
-    jurisdiction: number
-  }[]
-  lottoPayout: {
-    amount: number
-    jurisdiction: number
-  }
-  spiel77Payout: {
-    amount: number
-    jurisdiction: number
-  }
-  super6Payout: {
-    amount: number
-    jurisdiction: number
-  }
+  lottoOdds1: Odd[]
+  spiel77Odds: Odd[]
+  super6Odds: Odd[]
+  lottoTurnover: Turnover[]
+  spiel77Turnover: Turnover[]
+  super6Turnover: Turnover[]
+  lottoPayout: Turnover
+  spiel77Payout: Turnover
+  super6Payout: Turnover
 }
 
-export function getNumbers() {
+export function numbers() {
   const yearQuery = { query: t.Object({ year: t.String() }) }
   const gcQuery = { query: t.Object({ gckey: t.String() }) }
 
