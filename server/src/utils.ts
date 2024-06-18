@@ -1,8 +1,12 @@
 import type { Context } from 'elysia'
+import type { App } from '../'
 import { PORT } from '.'
 
 const cache = new Map<string, any>()
-export async function middleware<T>(c: Context) {
+export async function middleware<T>(c: Context & App['_volatile']['derive']) {
+  if (!c.authorized)
+    return new Response(null, { status: 401 })
+
   const _url = c.request.url
   const cached = cache.get(_url)
   if (cached) {
