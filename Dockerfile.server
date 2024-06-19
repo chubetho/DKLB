@@ -5,7 +5,7 @@ COPY ./server ./server
 COPY ./tools/eslint ./tools/eslint
 COPY ./tools/typescript ./tools/typescript
 
-RUN bun i --production
+RUN bun install
 
 EXPOSE 3000-3000
 ENTRYPOINT ["bun", "run", "--cwd", "server", "start"]
