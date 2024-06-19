@@ -5,7 +5,7 @@ import { useApi } from './api'
 
 type Routes = App['_routes']
 type Game = Routes['getDrawYears']['get']['query']['game']
-type Draw = Routes['getLottoNumberDrawsForYear']['get']['response']['200'][0]
+type Draw = NonNullable<Routes['getLottoNumberDrawsForYear']['get']['response']['200']>[0]
 
 export function useFetchGcKey(game: Game) {
   const api = useApi()
