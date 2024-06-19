@@ -37,7 +37,7 @@
     "@dklb/tailwind": "workspace:^",
     "@dklb/tsconfig": "workspace:^",
     "@iconify-json/mdi": "^1.1.66",
-    "@types/node": "^20.14.2",
+    "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.19",
