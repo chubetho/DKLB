@@ -29,15 +29,15 @@
     "@vueuse/core": "^10.11.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue": "^3.4.30",
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "@dklb/eslint-config": "workspace:^",
     "@dklb/tailwind": "workspace:^",
     "@dklb/tsconfig": "workspace:^",
-    "@iconify-json/mdi": "^1.1.66",
-    "@types/node": "^20.14.5",
+    "@iconify-json/mdi": "^1.1.67",
+    "@types/node": "^20.14.8",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.19",
@@ -53,6 +53,6 @@
     "vite": "^5.3.1",
     "vitest": "^1.6.0",
     "vue-router-mock": "^1.1.0",
-    "vue-tsc": "^2.0.21"
+    "vue-tsc": "^2.0.22"
   }
 }
