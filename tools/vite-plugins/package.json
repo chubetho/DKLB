@@ -3,6 +3,11 @@
   "type": "module",
   "version": "1.0.0",
   "private": "true",
+  "exports": {
+    ".": {
+      "import": "./index.js"
+    }
+  },
   "main": "index.js",
   "files": [
     "index.js"
