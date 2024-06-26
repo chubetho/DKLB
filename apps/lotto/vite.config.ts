@@ -35,6 +35,7 @@ export default defineConfig({
     remoteFederation({ name: 'lotto_app' }),
     reloadShell(),
   ],
+  css: { transformer: 'lightningcss' },
   server: { port: +mfeConfig.lotto.port, strictPort: true },
   preview: { port: +mfeConfig.lotto.port, strictPort: true },
   build: {

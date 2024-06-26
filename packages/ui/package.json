@@ -16,9 +16,8 @@
     "dist"
   ],
   "scripts": {
-    "vite": "bunx --bun vite",
-    "dev": "bun run vite",
-    "build": "bun run vite build",
+    "dev": "vite",
+    "build": "vite build",
     "build:types": "vue-tsc -p tsconfig.types.json",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -43,6 +42,7 @@
     "autoprefixer": "^10.4.19",
     "eslint": "^9.5.0",
     "jsdom": "^24.1.0",
+    "lightningcss": "^1.25.1",
     "postcss": "8.4.38",
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "3.4.3",

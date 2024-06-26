@@ -55,6 +55,7 @@ export default defineConfig({
     }),
     reloadEndpoint(),
   ],
+  css: { transformer: 'lightningcss' },
   server: { port: +shell.port, strictPort: true },
   preview: { port: +shell.port, strictPort: true },
   build: { target: 'esnext' },

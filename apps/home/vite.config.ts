@@ -35,6 +35,7 @@ export default defineConfig({
     remoteFederation({ name: 'home_app' }),
     reloadShell(),
   ],
+  css: { transformer: 'lightningcss' },
   server: { port: +mfeConfig.home.port, strictPort: true },
   preview: { port: +mfeConfig.home.port, strictPort: true },
   build: {
