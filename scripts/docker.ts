@@ -44,7 +44,9 @@ import mfeConfig from '../tools/mfe-config'
     const content = `FROM oven/bun:slim as build
 WORKDIR /dklb
 COPY . .
-RUN bun install && bun run build:ui && bun run build:apps && bun run build:shell
+RUN bun install
+RUN bun run build:ui
+RUN run-p build:apps build:shell
 
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html

@@ -9,8 +9,8 @@
     "tools/*"
   ],
   "scripts": {
-    "start": "bun run start:server & bun run start:shell & bun run start:apps",
-    "build": "bun run build:ui && bun run build:ui:types && bun run build:apps && bun run build:shell",
+    "start": "run-p start:server start:shell start:apps",
+    "build": "run-s build:ui build:ui:types build:apps build:shell",
     "test": "bun run --filter '*' test",
     "dev:server": "bun run --cwd ./server dev",
     "start:server": "bun run --cwd ./server start",
@@ -31,8 +31,9 @@
   "devDependencies": {
     "@clack/prompts": "^0.7.0",
     "@dklb/eslint-config": "workspace:^",
-    "@types/bun": "^1.1.5",
+    "@types/bun": "^1.1.6",
     "lint-staged": "^15.2.7",
+    "npm-run-all2": "^6.2.0",
     "simple-git-hooks": "^2.11.1"
   },
   "simple-git-hooks": {
