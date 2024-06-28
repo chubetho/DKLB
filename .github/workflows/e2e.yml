@@ -43,7 +43,7 @@ jobs:
         run: bun run --cwd playwright test
         env:
           HOME: /root
-          PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
+          PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
 
       - uses: actions/upload-artifact@v4
         if: always()
