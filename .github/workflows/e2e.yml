@@ -18,6 +18,8 @@ jobs:
 
       - name: Install
         run: bun install && bun add -D @playwright/test
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - name: Setup Docker
         run: bun run prepare:docker
@@ -31,9 +33,8 @@ jobs:
       - name: Install Playwright
         run: bunx playwright install --with-deps
 
-      - name: Wait for service to be ready
+      - name: Wait for Docker
         run: |
-          echo "Waiting for service to be ready..."
           until curl -s http://localhost:8000; do
             echo "Waiting for service..."
             sleep 1
@@ -43,6 +44,7 @@ jobs:
         run: bun run --cwd playwright test
         env:
           HOME: /root
+          PLAYWRIGHT_BROWSERS_PATH: /root/.cache/ms-playwright/
 
       # - uses: actions/upload-artifact@v4
       #   if: always()
