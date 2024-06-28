@@ -46,7 +46,7 @@ WORKDIR /dklb
 COPY . .
 RUN bun install
 RUN bun run build:ui
-RUN run-p build:apps build:shell
+RUN bunx run-p build:apps build:shell
 
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html

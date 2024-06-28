@@ -6,7 +6,8 @@
     "apps/*",
     "server",
     "packages/*",
-    "tools/*"
+    "tools/*",
+    "playwright/*"
   ],
   "scripts": {
     "start": "run-p start:server start:shell start:apps",

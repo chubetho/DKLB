@@ -1,0 +1,13 @@
+{
+  "name": "playwright",
+  "type": "module",
+  "scripts": {
+    "test": "bunx playwright test"
+  },
+  "devDependencies": {
+    "@dklb/eslint-config": "workspace:^",
+    "@dklb/tsconfig": "workspace:^",
+    "@playwright/test": "^1.45.0",
+    "@types/bun": "latest"
+  }
+}
