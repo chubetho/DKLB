@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+env:
+  HOME: /root
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+  PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright/
+
 jobs:
   e2e:
     runs-on: ubuntu-latest
@@ -18,8 +23,6 @@ jobs:
 
       - name: Install
         run: bun install && bun add -D @playwright/test
-        env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - name: Setup Docker
         run: bun run prepare:docker
@@ -42,9 +45,6 @@ jobs:
 
       - name: Test
         run: bun run --cwd playwright test
-        env:
-          HOME: /root
-          PLAYWRIGHT_BROWSERS_PATH: /root/.cache/ms-playwright/
 
       # - uses: actions/upload-artifact@v4
       #   if: always()
