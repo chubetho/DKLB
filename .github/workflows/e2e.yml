@@ -1,13 +1,12 @@
 name: e2e
 
 on:
-  workflow_run:
-    workflows: [shell, home, lotto, ui]
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
+  e2e:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +17,7 @@ jobs:
         uses: oven-sh/setup-bun@v1
 
       - name: Install
-        run: bun install
+        run: bun install && bun add -D @playwright/test
 
       - name: Setup Docker
         run: bun run prepare:docker
@@ -29,29 +28,21 @@ jobs:
       - name: Run Docker
         run: docker compose up -d
 
-  test:
-    needs: build
+      - name: Install Playwright
+        run: npx playwright install --with-deps
 
-    runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.45.0-jammy
-
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Setup Bun
-        run: npm i -g bun
-
-      - name: Install Dependencies
-        run: bun install && bun add -D @playwright/test
+      - name: Wait for service to be ready
+        run: |
+          echo "Waiting for service to be ready..."
+          until curl -s http://localhost:8000; do
+            echo "Waiting for service..."
+            sleep 1
+          done
 
       - name: Test
         run: bun run --cwd playwright test
+        env:
+          HOME: /root
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -59,13 +50,6 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
-
-  clean:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
 
       - name: Stop Docker
         run: docker compose down
