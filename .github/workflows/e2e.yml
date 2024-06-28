@@ -6,9 +6,8 @@ on:
       - main
 
 env:
-  HOME: /root
   PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
-  PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright/
+  PLAYWRIGHT_BROWSERS_PATH: /usr/lib/playwright
 
 jobs:
   e2e:
@@ -45,6 +44,8 @@ jobs:
 
       - name: Test
         run: bun run --cwd playwright test
+        env:
+          HOME: /root
 
       # - uses: actions/upload-artifact@v4
       #   if: always()
