@@ -29,7 +29,7 @@ jobs:
         run: docker compose up -d
 
       - name: Install Playwright
-        run: npx playwright install --with-deps
+        run: bunx playwright install --with-deps
 
       - name: Wait for service to be ready
         run: |
@@ -38,6 +38,12 @@ jobs:
             echo "Waiting for service..."
             sleep 1
           done
+
+      - name: Copy to Execution Path
+        if: ${{ !env.ACT }}
+        run: |
+          mkdir -p /root/.cache/ms-playwright/
+          mv /home/runner/.cache/ms-playwright/* /root/.cache/ms-playwright/
 
       - name: Test
         run: bun run --cwd playwright test
