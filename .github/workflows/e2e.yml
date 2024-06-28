@@ -42,8 +42,8 @@ jobs:
       - name: Copy to Execution Path
         if: ${{ !env.ACT }}
         run: |
-          mkdir -p /root/.cache/ms-playwright/
-          mv /home/runner/.cache/ms-playwright/* /root/.cache/ms-playwright/
+          sudo mkdir -p /root/.cache/ms-playwright/
+          sudo mv /home/runner/.cache/ms-playwright/* /root/.cache/ms-playwright/
 
       - name: Test
         run: bun run --cwd playwright test
