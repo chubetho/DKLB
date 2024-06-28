@@ -7,7 +7,7 @@ on:
 
 env:
   PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
-  PLAYWRIGHT_BROWSERS_PATH: /usr/lib/playwright
+  PLAYWRIGHT_BROWSERS_PATH: /tmp/playwright
 
 jobs:
   e2e:
