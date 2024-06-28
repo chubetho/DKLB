@@ -39,12 +39,10 @@ jobs:
             sleep 1
           done
 
-      - run: ls -la /home/runner/.cache/ms-playwright
-      - run: echo $PLAYWRIGHT_BROWSERS_PATH
-      # - name: Test
-      #   run: bun run --cwd playwright test
-      #   env:
-      #     HOME: /root
+      - name: Test
+        run: bun run --cwd playwright test
+        env:
+          HOME: /root
 
       # - uses: actions/upload-artifact@v4
       #   if: always()
