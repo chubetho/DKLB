@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "workspaces": [
     "apps/*",
-    "server",
     "packages/*",
     "tools/*",
-    "playwright/*"
+    "tests/*",
+    "server"
   ],
   "scripts": {
     "start": "run-p start:server start:shell start:apps",

@@ -1,6 +1,7 @@
 {
-  "name": "playwright",
+  "name": "e2e",
   "type": "module",
+  "private": true,
   "scripts": {
     "test": "bunx playwright test"
   },
