@@ -9,7 +9,7 @@ export default defineConfig({
   forbidOnly: !!isCI,
   retries: isCI ? 2 : 0,
   workers: isCI ? 1 : undefined,
-  reporter: 'line',
+  reporter: [isCI ? ['html', { open: 'never' }] : ['line']],
   use: {
     baseURL: 'http://localhost:8000',
     trace: 'on-first-retry',

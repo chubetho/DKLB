@@ -8,6 +8,7 @@ on:
 env:
   PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
   PLAYWRIGHT_BROWSERS_PATH: /tmp/playwright
+  CI: true
 
 jobs:
   e2e:
@@ -45,6 +46,13 @@ jobs:
         run: bun run --cwd ./tests/e2e test
         env:
           HOME: /root
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
 
       - name: Stop Docker
         run: docker compose down

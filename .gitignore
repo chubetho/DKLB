@@ -1,7 +1,7 @@
 node_modules
 coverage
-playwright/test-results
-playwright/playwright-report
+test-results
+playwright-report
 dist
 build
 .env
