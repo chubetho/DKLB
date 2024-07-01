@@ -13,3 +13,4 @@ coverage*
 .template
 scripts
 eslint.config.js
+.github

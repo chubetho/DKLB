@@ -32,7 +32,7 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.19",
-    "elysia": "^1.0.25",
+    "elysia": "^1.0.26",
     "eslint": "^9.6.0",
     "jsdom": "^24.1.0",
     "postcss": "8.4.38",

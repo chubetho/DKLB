@@ -41,7 +41,7 @@ import mfeConfig from '../tools/mfe-config'
       await write(confPath, str)
     })
 
-    const content = `FROM oven/bun:slim as build
+    const content = `FROM oven/bun:slim AS build
 WORKDIR /dklb
 COPY . .
 RUN bun install

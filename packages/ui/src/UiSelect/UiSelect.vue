@@ -1,14 +1,20 @@
 <script setup lang="ts">
 const props = defineProps<{
   options?: { label: string, value: string }[]
+  name?: string
 }>()
 
 const model = defineModel<string>()
+const name = computed(() => props.name ?? `select_${new Date().getTime()}`)
 </script>
 
 <template>
   <div class="inline-block bg-white max-w-[200px] border border-[#c5c5c5] relative mb-2 ">
-    <select v-model="model" class="py-[2px] pl-[5px] pr-[30px] h-[38px] appearance-none mr-[35px] w-full outline-none">
+    <select
+      v-model="model"
+      class="py-[2px] pl-[5px] pr-[30px] h-[38px] appearance-none mr-[35px] w-full outline-none"
+      :name="name"
+    >
       <option
         v-for="{ label, value } in props.options"
         :key="value"
