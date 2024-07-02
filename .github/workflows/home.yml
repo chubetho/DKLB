@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'apps/home/**'
+      - 'packages/ui/**'
       - .github/workflows/home.yml
 
 env:
