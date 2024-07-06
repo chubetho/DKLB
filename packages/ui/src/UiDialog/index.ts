@@ -38,7 +38,7 @@ export function useDialog(
       container && render(null, container)
       container?.remove && container.remove()
       container?.parentElement?.remove && container.parentElement.remove()
-    }, 500)
+    }, 300)
   }
   return { open, close }
 }

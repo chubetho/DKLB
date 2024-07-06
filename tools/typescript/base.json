@@ -4,6 +4,7 @@
     "target": "ESNext",
     "jsx": "preserve",
     "lib": ["DOM", "ESNext"],
+    "moduleDetection": "force",
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -11,20 +12,26 @@
     "allowJs": true,
     "strict": true,
     "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "esModuleInterop": true,
-    "verbatimModuleSyntax": true,
-    "noEmit": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
+    "noImplicitOverride": true,
     "noUncheckedIndexedAccess": true,
-    "moduleDetection": "force",
+    "noUnusedLocals": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "noImplicitOverride": true
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
   },
+  "include": [
+    "${configDir}/src/**/*.ts",
+    "${configDir}/src/**/*.vue",
+    "${configDir}/auto-imports.d.ts",
+    "${configDir}/components.d.ts"
+  ],
   "exclude": [
-    "dist",
-    "node_modules",
-    "eslint.config.js"
+    "${configDir}/dist",
+    "${configDir}/node_modules",
+    "${configDir}/eslint.config.js",
+    "${configDir}/*.test.ts"
   ]
 }

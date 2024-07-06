@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import type { RouterLinkProps } from 'vue-router'
-import { cn } from '../utils'
 import { type UiButtonVariants, uiButtonVariants } from '.'
 
 interface Props {

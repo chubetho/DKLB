@@ -17,7 +17,7 @@ export default defineConfig({
     }),
     AutoImport({
       imports: ['vue', 'vitest'],
-      dirs: ['./src/composables'],
+      dirs: ['./src/utils'],
       vueTemplate: true,
       include: [/\.vue$/, /\.vue\?vue/],
     }),
@@ -35,7 +35,6 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'ui',
       fileName: 'index',
       formats: ['es'],
     },

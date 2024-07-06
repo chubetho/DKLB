@@ -2,5 +2,6 @@
   "extends": "@dklb/tsconfig/base.json",
   "compilerOptions": {
     "lib": ["ESNext"]
-  }
+  },
+  "include": []
 }

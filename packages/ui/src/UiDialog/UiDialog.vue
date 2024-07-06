@@ -12,8 +12,8 @@ const emits = defineEmits<{
   <dialog
     class="
     [@starting-style]:open:opacity-0 [@starting-style]:open:backdrop:bg-[rgb(0_0_0_/_0%)]
-    opacity-0 transition-all duration-500 [transition-behavior:_allow-discrete]
-    backdrop:bg-[rgb(0_0_0_/_0%)] backdrop:transition-all backdrop:duration-500 backdrop:[transition-behavior:_allow-discrete]
+    opacity-0 transition-all duration-300 [transition-behavior:_allow-discrete]
+    backdrop:bg-[rgb(0_0_0_/_0%)] backdrop:transition-all backdrop:duration-300 backdrop:[transition-behavior:_allow-discrete]
     open:opacity-100 open:backdrop:bg-[rgb(0_0_0_/_25%)]"
   >
     <div class="bg-white p-6 relative min-w-[720px]">
