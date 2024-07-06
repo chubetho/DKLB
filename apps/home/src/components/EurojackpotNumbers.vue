@@ -8,9 +8,11 @@ const { year, key, drawOpts, yearsOpts } = useFetchGcKey('eurojackpot')
 const result = shallowRef<App['_routes']['getEurojackpotHistoricNumbers']['get']['response']['200'] | null>(null)
 
 watch(key, (gckey) => {
-  gckey && api.getEurojackpotHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
-    result.value = data
-  })
+  if (gckey) {
+    api.getEurojackpotHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
+      result.value = data
+    })
+  }
 })
 </script>
 

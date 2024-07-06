@@ -9,9 +9,11 @@ const { year, key, drawOpts, yearsOpts } = useFetchGcKey('lotto')
 
 const result = shallowRef<App['_routes']['getLottoHistoricOdds']['get']['response']['200'] | null>(null)
 watch(key, (gckey) => {
-  gckey && api.getLottoHistoricOdds.get({ query: { gckey } }).then(({ data }) => {
-    result.value = data
-  })
+  if (gckey) {
+    api.getLottoHistoricOdds.get({ query: { gckey } }).then(({ data }) => {
+      result.value = data
+    })
+  }
 })
 
 function formatNumber(n = 0) {

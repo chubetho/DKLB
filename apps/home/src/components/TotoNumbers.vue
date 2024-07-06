@@ -13,9 +13,11 @@ const {
 } = useFetchGcKey('totoew')
 const resultEw = shallowRef<App['_routes']['getTotoEwHistoricNumbers']['get']['response']['200'] | null>(null)
 watch(keyEw, (gckey) => {
-  gckey && api.getTotoEwHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
-    resultEw.value = data
-  })
+  if (gckey) {
+    api.getTotoEwHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
+      resultEw.value = data
+    })
+  }
 })
 
 const {
@@ -26,9 +28,11 @@ const {
 } = useFetchGcKey('totoaw')
 const resultAw = shallowRef<App['_routes']['getTotoAwHistoricNumbers']['get']['response']['200'] | null>(null)
 watch(keyAw, (gckey) => {
-  gckey && api.getTotoAwHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
-    resultAw.value = data
-  })
+  if (gckey) {
+    api.getTotoAwHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
+      resultAw.value = data
+    })
+  }
 })
 </script>
 

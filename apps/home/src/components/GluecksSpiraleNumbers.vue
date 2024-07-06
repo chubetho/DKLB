@@ -8,9 +8,11 @@ const { year, key, drawOpts, yearsOpts } = useFetchGcKey('gluecksspirale')
 const result = shallowRef<App['_routes']['getGluecksspiraleHistoricNumbers']['get']['response']['200'] | null>(null)
 
 watch(key, (gckey) => {
-  gckey && api.getGluecksspiraleHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
-    result.value = data
-  })
+  if (gckey) {
+    api.getGluecksspiraleHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
+      result.value = data
+    })
+  }
 })
 </script>
 

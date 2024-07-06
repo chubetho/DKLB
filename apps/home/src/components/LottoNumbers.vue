@@ -8,9 +8,11 @@ const { year, key, drawOpts, yearsOpts } = useFetchGcKey('lotto')
 const result = shallowRef<App['_routes']['getLottoHistoricNumbers']['get']['response']['200'] | null>(null)
 
 watch(key, (gckey) => {
-  gckey && api.getLottoHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
-    result.value = data
-  })
+  if (gckey) {
+    api.getLottoHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
+      result.value = data
+    })
+  }
 })
 </script>
 

@@ -23,12 +23,11 @@ export function reloadEndpoint() {
       server.middlewares.use((req, res, next) => {
         if (req.url === '/__fullReload') {
           server.hot.send({ type: 'full-reload' })
-
           res.end('Full reload triggered')
+          return
         }
-        else {
-          next()
-        }
+
+        next()
       })
     },
   }
@@ -43,14 +42,11 @@ export function reloadShell() {
     apply(config, { command }) {
       return command === 'build' && !!config.build?.watch
     },
-    async buildEnd(error) {
+    buildEnd(error) {
       if (error)
         return
 
-      try {
-        await fetch(`http://localhost:${mfeConfig.shell.port}/__fullReload`)
-      }
-      catch (e) { }
+      fetch(`http://localhost:${mfeConfig.shell.port}/__fullReload`)
     },
   }
 }

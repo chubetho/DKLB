@@ -9,7 +9,8 @@ type MfeConfig = typeof mfeConfig[keyof typeof mfeConfig]
 const { dirs, ports, prefixes } = Object.values(mfeConfig).reduce((acc, cur) => {
   acc.dirs.push(cur.dir)
   acc.ports.push(cur.port)
-  cur.prefix && acc.prefixes.push(cur.prefix)
+  if (cur.prefix)
+    acc.prefixes.push(cur.prefix)
   return acc
 }, { dirs: [] as string[], ports: [] as string[], prefixes: [] as string[] })
 

@@ -8,9 +8,11 @@ const { year, key, drawOpts, yearsOpts } = useFetchGcKey('keno')
 const result = shallowRef<App['_routes']['getKenoHistoricNumbers']['get']['response']['200'] | null>(null)
 
 watch(key, async (gckey) => {
-  gckey && api.getKenoHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
-    result.value = data
-  })
+  if (gckey) {
+    api.getKenoHistoricNumbers.get({ query: { gckey } }).then(({ data }) => {
+      result.value = data
+    })
+  }
 })
 </script>
 

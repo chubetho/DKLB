@@ -38,7 +38,8 @@ export function useFetchGcKey(game: Game) {
 
     years.value = _years.map(String)
     year.value = years.value[0]
-    year.value && await fetchDraws(year.value)
+    if (year.value)
+      await fetchDraws(year.value)
 
     watch(year, y => y && fetchDraws(y))
   }

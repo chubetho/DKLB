@@ -25,7 +25,8 @@ export function useDialog(
     const vNode = createVNode(Dialog)
     container = document.createDocumentFragment() as unknown as Element
     render(vNode, container)
-    dialogEl.value?.$el && dialogEl.value.$el.showModal()
+    if (dialogEl.value?.$el)
+      dialogEl.value.$el.showModal()
   }
 
   const close = () => {
@@ -35,9 +36,12 @@ export function useDialog(
     dialogEl.value.$el.close()
 
     setTimeout(() => {
-      container && render(null, container)
-      container?.remove && container.remove()
-      container?.parentElement?.remove && container.parentElement.remove()
+      if (container)
+        render(null, container)
+      if (container?.remove)
+        container.remove()
+      if (container?.parentElement?.remove)
+        container.parentElement.remove()
     }, 300)
   }
   return { open, close }
