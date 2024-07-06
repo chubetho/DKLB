@@ -70,6 +70,8 @@ ENTRYPOINT ["nginx", "-g", "daemon off;"]
       dockerfile: Dockerfile.apps
     ports:
       - '${minPort}-${maxPort}:${minPort}-${maxPort}'
+    depends_on:
+      - server
 
   server:
     build:

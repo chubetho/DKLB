@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile.apps
     ports:
       - '8000-8002:8000-8002'
+    depends_on:
+      - server
 
   server:
     build:
