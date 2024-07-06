@@ -34,7 +34,7 @@
     "@dklb/eslint-config": "workspace:^",
     "@types/bun": "^1.1.6",
     "lint-staged": "^15.2.7",
-    "npm-run-all2": "^6.2.0",
+    "npm-run-all2": "^6.2.2",
     "simple-git-hooks": "^2.11.1"
   },
   "simple-git-hooks": {
