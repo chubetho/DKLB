@@ -2,7 +2,7 @@
 
 /**
  * @typedef {import("vite").Plugin} Plugin
- * @typedef {{path:string,exposeName:string,route:string}} Route
+ * @typedef {import('./index').FederationConfig} FederationConfig
  */
 
 import fs from 'node:fs'
@@ -56,7 +56,7 @@ export function reloadShell() {
 }
 
 /**
- * @param {{name: string, dir?: string, extendExposes?: {[key:string]:string}}} config
+ * @param {FederationConfig} config
  * @return {Plugin}
  */
 export function remoteFederation(config) {
@@ -66,9 +66,6 @@ export function remoteFederation(config) {
     extendExposes = {},
   } = config
 
-  /**
-   *  @type {Route[]}
-   */
   const routes = globSync(`${dir}/**/*.vue`)
     .map((path) => {
       const lowerNoPrefixNoExt = path
