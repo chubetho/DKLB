@@ -5,20 +5,11 @@
   "private": true,
   "files": [
     "index.ts",
-    "postcss.js"
+    "postcss.config.js"
   ],
-  "scripts": {
-    "lint": "eslint ."
-  },
   "dependencies": {
     "autoprefixer": "^10.4.19",
     "postcss": "8.4.38",
     "tailwindcss": "3.4.3"
-  },
-  "devDependencies": {
-    "@dklb/eslint-config": "workspace:^",
-    "@dklb/tsconfig": "workspace:^",
-    "eslint": "^9.6.0",
-    "typescript": "^5.5.3"
   }
 }
