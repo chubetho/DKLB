@@ -26,8 +26,8 @@
     "build:ui:types": "bun --cwd ./packages/ui build:types",
     "prepare:docker": "bun run scripts/docker.ts",
     "create:app": "bun run scripts/create_app.ts",
-    "bump": "bunx taze -Ir -C . && bunx taze -I -C .template/app",
-    "postinstall": "bunx simple-git-hooks"
+    "bump": "taze -Ir -C . && taze -I -C .template/app",
+    "postinstall": "simple-git-hooks"
   },
   "devDependencies": {
     "@clack/prompts": "^0.7.0",
@@ -35,7 +35,8 @@
     "@types/bun": "^1.1.6",
     "lint-staged": "^15.2.7",
     "npm-run-all2": "^6.2.2",
-    "simple-git-hooks": "^2.11.1"
+    "simple-git-hooks": "^2.11.1",
+    "taze": "^0.14.2"
   },
   "simple-git-hooks": {
     "pre-commit": "bun lint-staged"
