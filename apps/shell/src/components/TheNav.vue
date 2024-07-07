@@ -38,8 +38,15 @@ const links = [
           </RouterLink>
         </div>
         <ul class="flex text-[#222] [&>li]:flex [&>li]:items-center [&>li]:h-[56px]">
-          <li v-for="{ name, path, disabled } in links" :key="name">
-            <RouterLink :to="path" class="text-xl text-center px-[15px]" :class="{ 'cursor-not-allowed opacity-50 line-through': disabled }">
+          <li
+            v-for="{ name, path, disabled } in links"
+            :key="name"
+          >
+            <RouterLink
+              :to="path"
+              class="text-xl text-center px-[15px]"
+              :class="{ 'cursor-not-allowed opacity-50 line-through': disabled }"
+            >
               {{ name }}
             </RouterLink>
           </li>

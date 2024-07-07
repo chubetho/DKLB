@@ -24,14 +24,16 @@
   },
   "include": [
     "${configDir}/src/**/*.ts",
-    "${configDir}/src/**/*.vue",
-    "${configDir}/auto-imports.d.ts",
-    "${configDir}/components.d.ts"
+    "${configDir}/src/**/*.vue"
   ],
   "exclude": [
     "${configDir}/dist",
     "${configDir}/node_modules",
     "${configDir}/eslint.config.js",
     "${configDir}/*.test.ts"
+  ],
+  "files": [
+    "${configDir}/auto-imports.d.ts",
+    "${configDir}/components.d.ts"
   ]
 }

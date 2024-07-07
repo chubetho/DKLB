@@ -10,6 +10,7 @@ declare module 'vue' {
     MdiChevronRight: typeof import('~icons/mdi/chevron-right')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TheFooter: typeof import('./src/components/TheFooter.vue')['default']
     TheNav: typeof import('./src/components/TheNav.vue')['default']
   }
 }
