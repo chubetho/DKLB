@@ -4,6 +4,7 @@ import { numbers } from './routes/numbers'
 
 export const PORT = import.meta.env.PORT || 3000
 
+// eslint-disable-next-line unused-imports/no-unused-vars
 const app = new Elysia()
   .derive(async ({ request }) => {
     const origin = request.headers.get('origin')
