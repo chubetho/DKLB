@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { UiButton } from '@dklb/ui'
 
-let timer: Timer
+let timer: NodeJS.Timeout
 
 onMounted(() => {
   const isDev = import.meta.env.DEV
