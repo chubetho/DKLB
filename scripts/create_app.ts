@@ -63,7 +63,17 @@ s.start()
   prefix,
 }
 
-await write('tools/mfe-config/index.js', `export default ${JSON.stringify(mfeConfig, null, 2)}`)
+await write(
+  'tools/mfe-config/index.js',
+   `// @ts-check
+
+/**
+ * @typedef {import('./index').MfeConfig} MfeConfig
+ * @type {MfeConfig}
+ */
+export default ${JSON.stringify(mfeConfig, null, 2)}`,
+)
+await $`bunx eslint --fix tools/mfe-config/index.js`
 await $`bun run prepare:docker`
 
 /**
@@ -98,8 +108,15 @@ s.stop()
 /**
  * Others
  */
-
-const shouldInstall = await confirm({ message: 'Install dependencies?', initialValue: true })
+const { shouldBuild, shouldInstall } = await group({
+  shouldInstall: () => confirm({ message: 'Install dependencies?', initialValue: true }),
+  shouldBuild: () => confirm({ message: 'Build?', initialValue: true }),
+}, {
+  onCancel() {
+    cancel('Operation cancelled.')
+    process.exit(0)
+  },
+})
 
 if (shouldInstall) {
   s.start('Installing dependencies...')
@@ -107,7 +124,6 @@ if (shouldInstall) {
   s.stop()
 }
 
-const shouldBuild = await confirm({ message: 'Build?', initialValue: true })
 if (shouldBuild) {
   s.start('Building...')
   await $`cd apps/${dir} && bun run build`

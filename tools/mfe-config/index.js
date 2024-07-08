@@ -1,3 +1,9 @@
+// @ts-check
+
+/**
+ * @typedef {import('./index').MfeConfig} MfeConfig
+ * @type {MfeConfig}
+ */
 export default {
   shell: {
     dir: 'shell',
