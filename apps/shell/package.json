@@ -22,7 +22,6 @@
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@dklb/api": "workspace:^",
     "@dklb/eslint-config": "workspace:^",
     "@dklb/mfe-config": "workspace:^",
     "@dklb/tailwind": "workspace:^",
