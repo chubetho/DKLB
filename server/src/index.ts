@@ -12,7 +12,12 @@ const app = new Elysia()
       ? { authorized: true }
       : { authorized: false }
   })
-  .use(cors({ origin: /http:\/\/localhost:8000/ }))
+  .use(
+    cors({
+      origin: /http:\/\/localhost:8000/,
+      allowedHeaders: ['Content-Type'],
+    }),
+  )
 
   // routes
   .use(numbers())

@@ -3,8 +3,9 @@
   "type": "module",
   "version": "1.0.0",
   "private": "true",
+  "types": "./index.d.ts",
   "files": [
-    "./eslint.config.js"
+    "./index.js"
   ],
   "scripts": {
     "lint": "eslint ."
