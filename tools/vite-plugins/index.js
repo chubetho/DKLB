@@ -7,7 +7,6 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
-import mfeConfig from '@dklb/mfe-config'
 import fastGlob from 'fast-glob'
 import federation from '@originjs/vite-plugin-federation'
 
@@ -46,7 +45,7 @@ export function reloadShell() {
       if (error)
         return
 
-      fetch(`http://localhost:${mfeConfig.shell.port}/__fullReload`)
+      fetch(`http://localhost:8000/__fullReload`)
     },
   }
 }

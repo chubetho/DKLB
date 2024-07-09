@@ -19,7 +19,9 @@ export async function setupRouter(app: App) {
   const entries = Object.values(rest)
     .flatMap(({ name, prefix }) => (name && prefix) ? [{ name, prefix }] : [])
   const routes = await loadRoutes(entries)
-  for (const route of routes) router.addRoute(route)
+  if (routes) {
+    for (const route of routes) router.addRoute(route)
+  }
 
   router.onError(() => router.push({ name: 'Error' }))
 

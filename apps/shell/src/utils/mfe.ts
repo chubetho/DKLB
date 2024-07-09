@@ -1,10 +1,17 @@
 import { __federation_method_getRemote, __federation_method_unwrapDefault } from 'virtual:__federation__'
 import type { RouteRecordRaw } from 'vue-router'
 
+interface ExposeRoute {
+  path: string
+  component: string
+}
+
 async function useRemote(name: string) {
   const getModule = async <T>(path: string) => {
     const wrapped = await __federation_method_getRemote(name, `./${path}`)
-    return __federation_method_unwrapDefault(wrapped) as T
+    if (!wrapped)
+      return
+    return __federation_method_unwrapDefault(wrapped) as T | undefined
   }
 
   return { getModule }
@@ -14,7 +21,7 @@ export async function loadRoutes(entries: { name: string, prefix: string }[]) {
   const promises = entries.map(async ({ name, prefix }) => {
     try {
       const { getModule } = await useRemote(name)
-      const routes = await getModule<{ path: string, component: string }[] | undefined>('routes')
+      const routes = await getModule<ExposeRoute[]>('routes')
       if (!routes || !routes.length)
         return []
 
@@ -30,12 +37,11 @@ export async function loadRoutes(entries: { name: string, prefix: string }[]) {
 
   const routes: RouteRecordRaw[] = []
   const results = await Promise.allSettled(promises)
-  results.forEach((result) => {
+  for (const result of results) {
     if (result.status === 'rejected' || !result.value)
       return
-
-    routes.push(...result.value)
-  })
+    for (const route of result.value) routes.push(route)
+  }
 
   return routes
 }
