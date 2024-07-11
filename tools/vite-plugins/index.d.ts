@@ -3,7 +3,7 @@ import type { Plugin } from 'vite'
 export interface FederationConfig {
   name: string
   dir?: string
-  extendExposes?: { [key: string]: string }
+  extendExposes?: Record<string, string>
 }
 
 export function reloadEndpoint(): Plugin

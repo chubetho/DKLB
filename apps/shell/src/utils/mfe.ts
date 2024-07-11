@@ -32,6 +32,7 @@ export async function loadRoutes(entries: { name: string, prefix: string }[]) {
     }
     catch (e) {
       console.error(`Error loading routes from ${name}: `, e)
+      return []
     }
   })
 
@@ -39,7 +40,7 @@ export async function loadRoutes(entries: { name: string, prefix: string }[]) {
   const results = await Promise.allSettled(promises)
   for (const result of results) {
     if (result.status === 'rejected' || !result.value)
-      return
+      continue
     for (const route of result.value) routes.push(route)
   }
 

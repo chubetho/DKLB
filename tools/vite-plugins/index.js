@@ -58,30 +58,30 @@ export function remoteFederation(config) {
   const {
     name,
     dir = 'src/pages',
-    extendExposes = {},
+    extendExposes = undefined,
   } = config
 
-  const routes = globSync(`${dir}/**/*.vue`)
-    .map((path) => {
-      const lowerNoPrefixNoExt = path
-        .toLowerCase()
-        .replace(dir, '')
-        .replace('.vue', '')
+  const globs = globSync(`${dir}/**/*.vue`)
+  const routes = globs.map((path) => {
+    const lowerNoPrefixNoExt = path
+      .toLowerCase()
+      .replace(dir, '')
+      .replace('.vue', '')
 
-      const exposeName = lowerNoPrefixNoExt
-        .split('/')
-        .filter(Boolean)
-        .map(x => x.charAt(0).toUpperCase() + x.slice(1))
-        .join('')
+    const exposeName = lowerNoPrefixNoExt
+      .split('/')
+      .filter(Boolean)
+      .map(x => x.charAt(0).toUpperCase() + x.slice(1))
+      .join('')
 
-      const route = lowerNoPrefixNoExt.replace('+index', '')
-      return { path, exposeName, route }
-    })
-
-  const exposes = { ...extendExposes }
-  routes.forEach(({ path, exposeName }) => {
-    exposes[`./${exposeName}`] = path
+    const route = lowerNoPrefixNoExt.replace('+index', '')
+    return { path, exposeName, route }
   })
+
+  const exposes = extendExposes ? { ...extendExposes } : {}
+  for (const { path, exposeName } of routes) {
+    exposes[`./${exposeName}`] = path
+  }
 
   const dirPath = path.join('.', 'node_modules', '.federation')
   const filePath = path.join(dirPath, 'routes.json')

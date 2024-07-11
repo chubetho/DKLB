@@ -15,15 +15,13 @@ export async function setupRouter(app: App) {
     ],
   })
 
+  router.onError(() => router.push({ name: 'Error' }))
+
   const { shell, ...rest } = mfeConfig
   const entries = Object.values(rest)
     .flatMap(({ name, prefix }) => (name && prefix) ? [{ name, prefix }] : [])
   const routes = await loadRoutes(entries)
-  if (routes) {
-    for (const route of routes) router.addRoute(route)
-  }
-
-  router.onError(() => router.push({ name: 'Error' }))
+  for (const route of routes) router.addRoute(route)
 
   app.use(router)
 }
