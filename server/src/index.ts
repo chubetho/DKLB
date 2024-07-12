@@ -6,7 +6,7 @@ export const PORT = import.meta.env.PORT || 3000
 
 // eslint-disable-next-line unused-imports/no-unused-vars
 const app = new Elysia()
-  .derive(async ({ request }) => {
+  .derive(({ request }) => {
     const origin = request.headers.get('origin')
     return origin === 'http://localhost:8000'
       ? { authorized: true }
@@ -22,6 +22,6 @@ const app = new Elysia()
   // routes
   .use(numbers())
 
-  .listen(3000)
+  .listen(PORT)
 
 export type App = typeof app

@@ -1,33 +1,33 @@
 import { write } from 'bun'
 import mfeConfig from '../tools/mfe-config'
 
-(function () {
+async function dockerfile() {
   const cors = `
-      add_header 'Access-Control-Allow-Origin' '*';
-      add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-      add_header 'Access-Control-Allow-Headers' 'Origin, X-Requested-With, Content-Type, Accept';
-      `
-
+  add_header 'Access-Control-Allow-Origin' 'http://localhost:8000';
+  add_header 'Access-Control-Allow-Methods' 'GET';
+  add_header 'Access-Control-Allow-Headers' 'Content-Type';
+  `
+  const copies: string[] = []
   let minPort = Number.POSITIVE_INFINITY
   let maxPort = Number.NEGATIVE_INFINITY
 
-  ;(async () => {
-    const copies: string[] = []
+  const entries = Object.entries(mfeConfig)
 
-    Object.entries(mfeConfig).forEach(async ([key, { port, dir }]) => {
-      if (!port || !dir)
-        return
+  for (const [key, { port, dir }] of entries) {
+    if (!port || !dir)
+      continue
 
-      if (+port < minPort)
-        minPort = +port
-      if (+port > maxPort)
-        maxPort = +port
+    const _port = Number.parseInt(port)
+    if (_port < minPort)
+      minPort = _port
+    if (_port > maxPort)
+      maxPort = _port
 
-      const isShell = key === 'shell'
-      const confPath = `.nginx/${dir}.conf`
-      const str = `server {
+    const isShell = key === 'shell'
+    const confPath = `.nginx/${dir}.conf`
+    const str = `server {
       listen ${port};
-      server_name localhost;
+      server_name localhost_${dir};
       ${isShell ? '' : cors}
       location / {
         root      /usr/share/nginx/html/${dir};
@@ -35,13 +35,13 @@ import mfeConfig from '../tools/mfe-config'
         ${isShell ? 'try_files $uri $uri/ /index.html;' : ``}
       }
     }
-      `
-      copies.push(`COPY --from=build /dklb/apps/${dir}/dist ${dir}`)
+`
+    copies.push(`COPY --from=build /dklb/apps/${dir}/dist ${dir}`)
 
-      await write(confPath, str)
-    })
+    await write(confPath, str)
+  }
 
-    const content = `FROM oven/bun:slim AS build
+  const content = `FROM oven/bun:slim AS build
 WORKDIR /dklb
 COPY . .
 RUN bun install
@@ -59,11 +59,13 @@ EXPOSE ${minPort}-${maxPort}
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 `
 
-    await write('Dockerfile.apps', content)
-  })()
+  await write('Dockerfile.apps', content)
 
-  ;(async () => {
-    const content = `services:
+  return { minPort, maxPort }
+}
+
+async function dockercompose({ minPort, maxPort }: { minPort: number, maxPort: number }) {
+  const content = `services:
   apps:
     build:
       context: .
@@ -80,7 +82,8 @@ ENTRYPOINT ["nginx", "-g", "daemon off;"]
     ports:
       - '3000:3000'
 `
+  await write('docker-compose.yml', content)
+}
 
-    await write('docker-compose.yml', content)
-  })()
-})()
+const { minPort, maxPort } = await dockerfile()
+await dockercompose({ minPort, maxPort })
