@@ -3,15 +3,17 @@
   "type": "module",
   "version": "1.0.0",
   "private": "true",
+  "exports": {
+    ".": {
+      "import": "./index.js"
+    }
+  },
   "types": "./index.d.ts",
-  "files": [
-    "./index.js"
-  ],
   "scripts": {
     "lint": "eslint ."
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.22.0",
-    "eslint": "^9.6.0"
+    "eslint": "^9.7.0"
   }
 }
