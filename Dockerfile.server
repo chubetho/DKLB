@@ -1,11 +1,12 @@
 FROM oven/bun:slim
 WORKDIR /dklb
-COPY package.json .
-COPY ./server ./server
-COPY ./tools/eslint ./tools/eslint
-COPY ./tools/typescript ./tools/typescript
 
-RUN bun install
+COPY ./server ./
 
-EXPOSE 3000-3000
-ENTRYPOINT ["bun", "run", "--cwd", "server", "start"]
+RUN sed -i '/"@dklb\/eslint-config": "workspace:\^"/d' ./package.json && \
+    sed -i '/"@dklb\/tsconfig": "workspace:\^"/d' ./package.json
+
+RUN bun install --production --ignore-scripts
+
+EXPOSE 3000
+ENTRYPOINT ["bun", "run", "start"]

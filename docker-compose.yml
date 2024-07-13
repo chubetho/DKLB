@@ -1,4 +1,11 @@
 services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - '3000:3000'
+
   apps:
     build:
       context: .
@@ -7,10 +14,3 @@ services:
       - '8000-8002:8000-8002'
     depends_on:
       - server
-
-  server:
-    build:
-      context: .
-      dockerfile: Dockerfile.server
-    ports:
-      - '3000:3000'

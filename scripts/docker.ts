@@ -3,27 +3,23 @@ import mfeConfig from '../tools/mfe-config'
 
 async function dockerfile() {
   const cors = `
-  add_header 'Access-Control-Allow-Origin' 'http://localhost:8000';
-  add_header 'Access-Control-Allow-Methods' 'GET';
-  add_header 'Access-Control-Allow-Headers' 'Content-Type';
-  `
+      add_header 'Access-Control-Allow-Origin' 'http://localhost:8000';
+      add_header 'Access-Control-Allow-Methods' 'GET';
+      add_header 'Access-Control-Allow-Headers' 'Content-Type';
+`
   const copies: string[] = []
   let minPort = Number.POSITIVE_INFINITY
   let maxPort = Number.NEGATIVE_INFINITY
 
-  const entries = Object.entries(mfeConfig)
-
-  for (const [key, { port, dir }] of entries) {
-    if (!port || !dir)
-      continue
-
+  const entries = Object.values(mfeConfig)
+  for (const { port, dir } of entries) {
     const _port = Number.parseInt(port)
     if (_port < minPort)
       minPort = _port
     if (_port > maxPort)
       maxPort = _port
 
-    const isShell = key === 'shell'
+    const isShell = dir === 'shell'
     const confPath = `.nginx/${dir}.conf`
     const str = `server {
       listen ${port};
@@ -32,9 +28,9 @@ async function dockerfile() {
       location / {
         root      /usr/share/nginx/html/${dir};
         index     index.html;
-        ${isShell ? 'try_files $uri $uri/ /index.html;' : ``}
+        ${isShell ? 'try_files $uri $uri/ /index.html;' : ''}
       }
-    }
+}
 `
     copies.push(`COPY --from=build /dklb/apps/${dir}/dist ${dir}`)
 
@@ -64,8 +60,16 @@ ENTRYPOINT ["nginx", "-g", "daemon off;"]
   return { minPort, maxPort }
 }
 
-async function dockercompose({ minPort, maxPort }: { minPort: number, maxPort: number }) {
+(async function dockercompose() {
+  const { minPort, maxPort } = await dockerfile()
   const content = `services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - '3000:3000'
+
   apps:
     build:
       context: .
@@ -74,16 +78,6 @@ async function dockercompose({ minPort, maxPort }: { minPort: number, maxPort: n
       - '${minPort}-${maxPort}:${minPort}-${maxPort}'
     depends_on:
       - server
-
-  server:
-    build:
-      context: .
-      dockerfile: Dockerfile.server
-    ports:
-      - '3000:3000'
 `
   await write('docker-compose.yml', content)
-}
-
-const { minPort, maxPort } = await dockerfile()
-await dockercompose({ minPort, maxPort })
+})()
