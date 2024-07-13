@@ -13,7 +13,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.22.0",
+    "@antfu/eslint-config": "^2.22.2",
     "eslint": "^9.7.0"
   }
 }
