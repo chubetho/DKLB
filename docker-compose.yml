@@ -2,15 +2,33 @@ services:
   server:
     build:
       context: .
-      dockerfile: Dockerfile.server
+      dockerfile: dockers/Dockerfile.server
     ports:
       - '3000:3000'
 
-  apps:
+  shell:
     build:
       context: .
-      dockerfile: Dockerfile.apps
+      dockerfile: dockers/Dockerfile.shell
     ports:
-      - '8000-8002:8000-8002'
+      - '8000:8000'
+    depends_on:
+      - server
+
+  home:
+    build:
+      context: .
+      dockerfile: dockers/Dockerfile.home
+    ports:
+      - '8001:8001'
+    depends_on:
+      - server
+
+  lotto:
+    build:
+      context: .
+      dockerfile: dockers/Dockerfile.lotto
+    ports:
+      - '8002:8002'
     depends_on:
       - server
