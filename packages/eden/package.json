@@ -1,0 +1,15 @@
+{
+  "name": "@dklb/eden",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "files": [
+    "index.ts"
+  ],
+  "dependencies": {
+    "@elysiajs/eden": "^1.0.14"
+  },
+  "devDependencies": {
+    "@dklb/api": "workspace:^"
+  }
+}

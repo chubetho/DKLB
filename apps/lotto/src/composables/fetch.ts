@@ -1,7 +1,7 @@
 import { computed, shallowRef, watch } from 'vue'
 import { useDateFormat } from '@vueuse/core'
 import type { App } from '@dklb/api'
-import { useApi } from './api'
+import { useApi } from '@dklb/eden'
 
 type Routes = App['_routes']
 type Game = Routes['getDrawYears']['get']['query']['game']

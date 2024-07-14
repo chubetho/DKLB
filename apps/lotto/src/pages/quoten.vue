@@ -2,7 +2,6 @@
 import { UiSelect } from '@dklb/ui'
 import type { App } from '@dklb/api'
 import { useFetchGcKey } from '../composables/fetch'
-import { useApi } from '../composables/api'
 
 const api = useApi()
 const { year, key, drawOpts, yearsOpts } = useFetchGcKey('lotto')

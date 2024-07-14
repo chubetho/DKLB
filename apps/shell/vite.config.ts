@@ -32,7 +32,14 @@ export default defineConfig({
       defaultClass: 'block text-2xl',
     }),
     AutoImport({
-      imports: ['vue', 'vue-router', 'vitest'],
+      imports: [
+        'vue',
+        'vue-router',
+        'vitest',
+        {
+          '@dklb/eden': ['useApi'],
+        },
+      ],
       dirs: ['./src/composables'],
       vueTemplate: true,
       include: [/\.vue$/, /\.vue\?vue/],
