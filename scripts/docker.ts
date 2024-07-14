@@ -7,8 +7,8 @@ WORKDIR /dklb
 
 COPY ./server ./
 
-RUN sed -i '/"@dklb\/eslint-config": "workspace:\^"/d' ./package.json && \\
-    sed -i '/"@dklb\/tsconfig": "workspace:\^"/d' ./package.json
+RUN sed -i '/"@dklb\\/eslint-config": "workspace:\\^"/d' ./package.json && \\
+    sed -i '/"@dklb\\/tsconfig": "workspace:\\^"/d' ./package.json
 
 RUN bun install --production --ignore-scripts
 
