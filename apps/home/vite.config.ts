@@ -39,7 +39,12 @@ export default defineConfig({
         }),
       ],
     }),
-    remoteFederation({ name: 'home_app' }),
+    remoteFederation({
+      name: 'home_app',
+      extendExposes: {
+        './LottoNumbers': './src/components/LottoNumbers.vue',
+      },
+    }),
     reloadShell(),
   ],
   server: { port: +mfeConfig.home.port, strictPort: true },

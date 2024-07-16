@@ -39,7 +39,12 @@ export default defineConfig({
         }),
       ],
     }),
-    remoteFederation({ name: 'lotto_app' }),
+    remoteFederation({
+      name: 'lotto_app',
+      remotes: {
+        [mfeConfig.home.name!]: mfeConfig.home.port,
+      },
+    }),
     reloadShell(),
   ],
   server: { port: +mfeConfig.lotto.port, strictPort: true },

@@ -4,6 +4,7 @@ export interface FederationConfig {
   name: string
   dir?: string
   extendExposes?: Record<string, string>
+  remotes?: Record<string, string>
 }
 
 export function reloadEndpoint(): Plugin

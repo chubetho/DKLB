@@ -59,6 +59,7 @@ export function remoteFederation(config) {
     name,
     dir = 'src/pages',
     extendExposes = undefined,
+    remotes = undefined,
   } = config
 
   const globs = globSync(`${dir}/**/*.vue`)
@@ -94,10 +95,25 @@ export function remoteFederation(config) {
   fs.writeFileSync(filePath, JSON.stringify(content, null, 2))
   exposes['./routes'] = filePath
 
+  let _remotes
+  if (remotes) {
+    _remotes = {}
+    const entries = Object.entries(remotes)
+    for (const [key, value] of entries) {
+      _remotes[key] = {
+        external: `http://localhost:${value}/assets/remoteEntry.js`,
+        format: 'esm',
+        from: 'vite',
+        externalType: 'url',
+      }
+    }
+  }
+
   return federation({
     name,
     exposes,
     transformFileTypes: ['.js', '.ts', '.vue'],
     shared: ['vue', 'pinia', 'vue-router'],
+    remotes: _remotes,
   })
 }

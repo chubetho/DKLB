@@ -2,6 +2,8 @@
 import { UiButton, useDialog } from '@dklb/ui'
 import { useTicketStore } from '../stores/ticket'
 
+const LottoNumbers = defineAsyncComponent(() => import('home_app/LottoNumbers'))
+
 const store = useTicketStore()
 
 const { open, close } = useDialog({
@@ -71,7 +73,7 @@ function confirm() {
         Saved {{ store.local }}
       </p>
 
-      <div class="flex flex-center">
+      <div class="flex flex-col flex-center">
         <div class="space-y-3">
           <p class="text-primary text-lg text-center">
             Wählen Sie 6 aus 49 Zahlen
@@ -111,6 +113,8 @@ function confirm() {
             </li>
           </ul>
         </div>
+
+        <LottoNumbers class="pt-10" />
       </div>
     </div>
   </Layout>
