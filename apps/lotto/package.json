@@ -31,7 +31,7 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.19",
-    "elysia": "^1.0.27",
+    "elysia": "^1.1.1",
     "eslint": "^9.7.0",
     "jsdom": "^24.1.0",
     "postcss": "8.4.38",
@@ -39,9 +39,9 @@
     "typescript": "^5.5.3",
     "unplugin-auto-import": "^0.18.0",
     "unplugin-icons": "^0.19.0",
-    "unplugin-vue-components": "^0.27.2",
-    "vite": "^5.3.3",
-    "vitest": "^2.0.2",
+    "unplugin-vue-components": "^0.27.3",
+    "vite": "^5.3.4",
+    "vitest": "^2.0.3",
     "vue-router-mock": "^1.1.0",
     "vue-tsc": "^2.0.26"
   }

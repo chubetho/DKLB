@@ -7,8 +7,8 @@
     "start": "NODE_ENV=PROD bun run src/index.ts"
   },
   "dependencies": {
-    "@elysiajs/cors": "^1.0.4",
-    "elysia": "^1.0.27"
+    "@elysiajs/cors": "^1.1.0",
+    "elysia": "^1.1.1"
   },
   "devDependencies": {
     "@dklb/eslint-config": "workspace:^",
