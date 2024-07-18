@@ -25,10 +25,10 @@ async function dockerfileApps() {
       add_header 'Access-Control-Allow-Headers' 'Content-Type';
 `
 
-  const entries = Object.values(mfeConfig)
-  for (const { port, dir } of entries) {
+  const values = Object.values(mfeConfig)
+  for (const { port, dir } of values) {
     const isShell = dir === 'shell'
-    const confPath = `.nginx/${dir}.conf`
+    const path = `.nginx/${dir}.conf`
     const str = `server {
       listen ${port};
       server_name localhost_${dir};
@@ -41,7 +41,7 @@ async function dockerfileApps() {
 }
 `
 
-    await write(confPath, str)
+    await write(path, str)
 
     const content = `FROM oven/bun:slim AS build
 WORKDIR /dklb
@@ -53,7 +53,7 @@ RUN bun run --cwd apps/${dir} build
 FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 RUN rm -rf * && rm -f /etc/nginx/conf.d/default.conf
-COPY .nginx/*.conf /etc/nginx/conf.d
+COPY .nginx/${dir}.conf /etc/nginx/conf.d
 COPY --from=build /dklb/apps/${dir}/dist ${dir}
 
 EXPOSE ${port}
@@ -65,7 +65,7 @@ ENTRYPOINT ["nginx", "-g", "daemon off;"]
 }
 
 async function dockercompose() {
-  const entries = Object.values(mfeConfig)
+  const values = Object.values(mfeConfig)
 
   const contents = [
     `services:
@@ -77,7 +77,7 @@ async function dockercompose() {
       - '3000:3000'`,
   ]
 
-  for (const { port, dir } of entries) {
+  for (const { port, dir } of values) {
     const content = `
   ${dir}:
     build:
@@ -90,7 +90,7 @@ async function dockercompose() {
     contents.push(content)
   }
 
-  await write('docker-compose.yml', contents.join('\n'))
+  await write('docker-compose.yml', `${contents.join('\n')}\n`)
 }
 
 dockerfileServer()
