@@ -17,7 +17,7 @@
     "@dklb/ui": "workspace:^",
     "@vueuse/core": "^10.11.0",
     "pinia": "^2.1.7",
-    "vue": "^3.4.32",
+    "vue": "^3.4.33",
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
@@ -26,6 +26,7 @@
     "@dklb/mfe-config": "workspace:^",
     "@dklb/tailwind": "workspace:^",
     "@dklb/tsconfig": "workspace:^",
+    "@dklb/utils": "workspace:^",
     "@dklb/vite-plugins": "workspace:^",
     "@iconify-json/mdi": "^1.1.67",
     "@originjs/vite-plugin-federation": "^1.3.5",

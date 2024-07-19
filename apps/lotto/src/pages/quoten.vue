@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { GLOBAL_STATE_KEY } from '@dklb/utils'
 import { UiSelect } from '@dklb/ui'
 import type { App } from '@dklb/api'
 import { useFetchGcKey } from '../composables/fetch'
@@ -49,6 +50,9 @@ function formatWinningClass(n = 0) {
       return 'Unbekannt'
   }
 }
+
+const logs = inject<Ref<string[]>>(GLOBAL_STATE_KEY)
+console.log('Log from lotto /quoten:', logs?.value)
 </script>
 
 <template>

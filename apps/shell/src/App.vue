@@ -1,3 +1,15 @@
+<script setup lang="ts">
+import { GLOBAL_STATE_KEY } from '@dklb/utils'
+
+const logs = ref<string[]>([])
+provide(GLOBAL_STATE_KEY, logs)
+
+const route = useRoute()
+watch(route, (v) => {
+  logs.value.push(v.path)
+})
+</script>
+
 <template>
   <TheNav />
 

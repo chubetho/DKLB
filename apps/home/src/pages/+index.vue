@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { GLOBAL_STATE_KEY } from '@dklb/utils'
+
 type Type = (typeof types)[number]['value']
 
 const types = [
@@ -10,6 +12,9 @@ const types = [
 ] as const
 
 const type = ref<Type>('lotto')
+
+const logs = inject<Ref<string[]>>(GLOBAL_STATE_KEY)
+console.log('Log from home /:', logs?.value)
 </script>
 
 <template>
