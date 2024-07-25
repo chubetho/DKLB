@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { UiButton, UiSelect, UiSeparator } from '@dklb/ui'
-import type { App } from '@dklb/api'
-
+import { type App, useApi } from '@dklb/eden'
+import { shallowRef, watch } from 'vue'
 import { useFetchGcKey } from '../composables/fetch'
+import IconToto from './icons/IconToto.vue'
+import MdiChevronRight from '~icons/mdi/chevron-right'
 
 const api = useApi()
 const {
@@ -45,7 +47,7 @@ watch(keyAw, (gckey) => {
     <UiSeparator class="bg-[#707070] h-[2px]" />
 
     <div class="space-y-4">
-      <templat v-if="resultEw">
+      <template v-if="resultEw">
         <div class="flex items-center">
           <span class="mr-4">Ziehung vom:</span>
           <UiSelect v-model="keyEw" :options="drawEwOpts" class="mr-6 w-[200px]" />
@@ -71,7 +73,7 @@ watch(keyAw, (gckey) => {
             </UiButton>
           </div>
         </div>
-      </templat>
+      </template>
 
       <template v-if="resultAw">
         <div class="flex items-center">

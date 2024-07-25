@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils'
+import { expect, it } from 'vitest'
 import TheFooter from './TheFooter.vue'
 
 it('mount component', async () => {

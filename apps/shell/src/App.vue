@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { GLOBAL_STATE_KEY } from '@dklb/utils'
+import { provide, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import TheNav from './components/TheNav.vue'
+import TheFooter from './components/TheFooter.vue'
 
 const logs = ref<string[]>([])
 provide(GLOBAL_STATE_KEY, logs)

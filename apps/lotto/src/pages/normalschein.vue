@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { UiButton, useDialog } from '@dklb/ui'
 import { GLOBAL_STATE_KEY } from '@dklb/utils'
+import { type Ref, defineAsyncComponent, h, inject } from 'vue'
 import { useTicketStore } from '../stores/ticket'
+import Layout from '../components/Layout.vue'
+import MdiCheck from '~icons/mdi/check'
+import MdiReload from '~icons/mdi/reload'
+import MdiTrashOutline from '~icons/mdi/trash-outline'
 
 const LottoNumbers = defineAsyncComponent(() => import('home_app/LottoNumbers'))
 

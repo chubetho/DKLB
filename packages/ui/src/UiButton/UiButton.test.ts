@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import RouterLink from 'vue-router-mock'
+import { expect, it } from 'vitest'
 import UiButton from './UiButton.vue'
 
 const slots = { default: () => 'Click me' }

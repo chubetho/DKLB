@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { UiButton } from '@dklb/ui'
+import { useRouter } from 'vue-router'
+import { onMounted, onUnmounted } from 'vue'
+import MdiChevronRight from '~icons/mdi/chevron-right'
 
 let timer: ReturnType<typeof setInterval>
 

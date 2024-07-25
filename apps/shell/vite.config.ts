@@ -3,10 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import federation, { type RemotesObject } from '@originjs/vite-plugin-federation'
 import { reloadEndpoint } from '@dklb/vite-plugins'
 import mfeConfig from '@dklb/mfe-config'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
-import IconResolver from 'unplugin-icons/resolver'
 
 const { shell, ...rest } = mfeConfig
 const remotes = Object.entries(rest).reduce((acc, [key, value]) => {
@@ -30,29 +27,6 @@ export default defineConfig({
       compiler: 'vue3',
       scale: 1,
       defaultClass: 'block text-2xl',
-    }),
-    AutoImport({
-      imports: [
-        'vue',
-        'vue-router',
-        'vitest',
-        {
-          '@dklb/eden': ['useApi'],
-        },
-      ],
-      dirs: ['./src/composables'],
-      vueTemplate: true,
-      include: [/\.vue$/, /\.vue\?vue/],
-    }),
-    Components({
-      dirs: ['./src/components'],
-      dts: true,
-      resolvers: [
-        IconResolver({
-          prefix: false,
-          enabledCollections: ['mdi'],
-        }),
-      ],
     }),
     federation({
       name: 'shell_app',

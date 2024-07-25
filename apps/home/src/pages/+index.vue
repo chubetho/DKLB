@@ -1,5 +1,13 @@
 <script setup lang="ts">
 import { GLOBAL_STATE_KEY } from '@dklb/utils'
+import { type Ref, inject, ref } from 'vue'
+import LottoNumbers from '../components/LottoNumbers.vue'
+import EurojackpotNumbers from '../components/EurojackpotNumbers.vue'
+import GluecksSpiraleNumbers from '../components/GluecksSpiraleNumbers.vue'
+import KenoNumbers from '../components/KenoNumbers.vue'
+import TotoNumbers from '../components/TotoNumbers.vue'
+import Layout from '../components/Layout.vue'
+import MdiChevronRight from '~icons/mdi/chevron-right'
 
 type Type = (typeof types)[number]['value']
 
