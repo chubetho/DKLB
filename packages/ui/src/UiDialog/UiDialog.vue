@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import MdiClose from '~icons/mdi/close'
+
 const props = defineProps<{
   title: string
 }>()
