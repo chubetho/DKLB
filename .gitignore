@@ -8,3 +8,4 @@ build
 .env*.local
 .nginx
 dockers
+.DS_Store
