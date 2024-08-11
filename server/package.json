@@ -3,7 +3,8 @@
   "type": "module",
   "types": "./src/index.d.ts",
   "scripts": {
-    "dev": "NODE_ENV=DEV bun --watch run src/index.ts",
+    "dev": "bun --watch run src/index.ts",
+    "build": "bun build src/index.ts --outdir ./dist --target bun --format esm --minify",
     "start": "NODE_ENV=PROD bun run src/index.ts"
   },
   "dependencies": {

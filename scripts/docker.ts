@@ -10,10 +10,15 @@ COPY ./server ./
 RUN sed -i '/"@dklb\\/eslint-config": "workspace:\\^"/d' ./package.json && \\
     sed -i '/"@dklb\\/tsconfig": "workspace:\\^"/d' ./package.json
 
-RUN bun install --production --ignore-scripts
+RUN bun install --production --ignore-scripts && \\
+    bun run build
+
+FROM oven/bun:slim
+WORKDIR /dklb
+COPY --from=build /dklb/dist/index.js /dklb/index.js
 
 EXPOSE 3000
-ENTRYPOINT ["bun", "run", "start"]
+ENTRYPOINT ["bun", "run", "/dklb/index.js"]
 `
   await write('dockers/Dockerfile.server', content)
 }
