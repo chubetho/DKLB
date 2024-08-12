@@ -2,7 +2,7 @@ import { write } from 'bun'
 import mfeConfig from '../tools/mfe-config'
 
 async function dockerfileServer() {
-  const content = `FROM oven/bun:slim
+  const content = `FROM oven/bun:slim AS build
 WORKDIR /dklb
 
 COPY ./server ./

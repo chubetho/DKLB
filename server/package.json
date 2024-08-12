@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@elysiajs/cors": "^1.1.0",
-    "elysia": "^1.1.5"
+    "elysia": "^1.1.6"
   },
   "devDependencies": {
     "@dklb/eslint-config": "workspace:^",
