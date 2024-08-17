@@ -11,7 +11,7 @@ RUN bun install --production --ignore-scripts && \\
     bun run build
 
 FROM oven/bun:slim
-COPY --from=build /dist/index.js ./index.js
+COPY --from=build /dklb/dist/index.js ./index.js
 EXPOSE 3000
 ENTRYPOINT ["bun", "run", "./index.js"]
 `
