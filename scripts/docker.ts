@@ -4,21 +4,16 @@ import mfeConfig from '../tools/mfe-config'
 async function dockerfileServer() {
   const content = `FROM oven/bun:slim AS build
 WORKDIR /dklb
-
 COPY ./server ./
-
 RUN sed -i '/"@dklb\\/eslint-config": "workspace:\\^"/d' ./package.json && \\
     sed -i '/"@dklb\\/tsconfig": "workspace:\\^"/d' ./package.json
-
 RUN bun install --production --ignore-scripts && \\
     bun run build
 
 FROM oven/bun:slim
-WORKDIR /dklb
-COPY --from=build /dklb/dist/index.js /dklb/index.js
-
+COPY --from=build /dist/index.js ./index.js
 EXPOSE 3000
-ENTRYPOINT ["bun", "run", "/dklb/index.js"]
+ENTRYPOINT ["bun", "run", "./index.js"]
 `
   await write('dockers/Dockerfile.server', content)
 }
