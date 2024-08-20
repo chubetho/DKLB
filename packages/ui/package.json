@@ -25,7 +25,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@vueuse/core": "^11.0.0",
+    "@vueuse/core": "^11.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "vue": "^3.4.38",
@@ -36,7 +36,7 @@
     "@dklb/tailwind": "workspace:^",
     "@dklb/tsconfig": "workspace:^",
     "@iconify-json/mdi": "^1.1.68",
-    "@types/node": "^20.15.0",
+    "@types/node": "^20.16.1",
     "@vitejs/plugin-vue": "^5.1.2",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.9.0",
@@ -46,7 +46,7 @@
     "tailwindcss": "3.4.3",
     "typescript": "^5.5.4",
     "unplugin-icons": "^0.19.2",
-    "vite": "^5.4.1",
+    "vite": "^5.4.2",
     "vitest": "^2.0.5",
     "vue-router-mock": "^1.1.0",
     "vue-tsc": "^2.0.29"
