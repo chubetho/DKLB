@@ -65,7 +65,7 @@ s.start()
 
 await write(
   'tools/mfe-config/index.js',
-   `// @ts-check
+  `// @ts-check
 
 /**
  * @typedef {import('./index').MfeConfig} MfeConfig
