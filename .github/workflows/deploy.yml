@@ -4,21 +4,28 @@ on:
   push:
     branches:
       - deploy
+env:
+  DROPLET_ID: 441377794
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
         with:
-          token: ${{ secrets.DIGITALOCEAN }}
+          token: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
 
       - name: Deploy to Droplet
         run: |
-          doctl compute ssh root@209.38.249.17 --ssh-command "
-            cd /DKLB
+          doctl compute ssh ${{ env.DROPLET_ID }} --ssh-command "
+            cd /root/DKLB
             git pull origin main
             docker compose down
             docker compose up --build -d
