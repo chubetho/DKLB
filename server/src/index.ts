@@ -14,7 +14,7 @@ const app = new Elysia()
   })
   .use(
     cors({
-      origin: /http:\/\/localhost:8000/,
+      origin: /http:\/\/209.38.249.17:8000/,
       allowedHeaders: ['Content-Type'],
     }),
   )
