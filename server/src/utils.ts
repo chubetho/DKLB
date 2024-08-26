@@ -12,7 +12,7 @@ export async function middleware<T>(c: Context & App['_volatile']['derive']) {
   if (cached) {
     return cached as T
   }
-  const url = _url.replace(`http://localhost:${PORT}`, 'https://www.lotto-bw.de')
+  const url = _url.replace(`http://209.38.249.17:${PORT}`, 'https://www.lotto-bw.de')
   const response = await fetch(url)
 
   const value = await response.json()

@@ -8,7 +8,7 @@ export const PORT = import.meta.env.PORT || 3000
 const app = new Elysia()
   .derive(({ request }) => {
     const origin = request.headers.get('origin')
-    return origin === 'http://localhost:8000'
+    return origin === 'http://209.38.249.17:8000'
       ? { authorized: true }
       : { authorized: false }
   })
