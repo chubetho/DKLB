@@ -28,7 +28,7 @@
     "@vueuse/core": "^11.0.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "vue": "^3.4.38",
+    "vue": "^3.5.1",
     "vue-router": "^4.4.3"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
     "@dklb/tailwind": "workspace:^",
     "@dklb/tsconfig": "workspace:^",
     "@iconify-json/mdi": "^1.2.0",
-    "@types/node": "^20.16.3",
+    "@types/node": "^20.16.4",
     "@vitejs/plugin-vue": "^5.1.3",
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.9.1",
@@ -46,9 +46,9 @@
     "tailwindcss": "3.4.3",
     "typescript": "^5.5.4",
     "unplugin-icons": "^0.19.2",
-    "vite": "^5.4.2",
+    "vite": "^5.4.3",
     "vitest": "^2.0.5",
     "vue-router-mock": "^1.1.0",
-    "vue-tsc": "^2.1.4"
+    "vue-tsc": "^2.1.6"
   }
 }
