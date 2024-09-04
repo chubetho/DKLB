@@ -16,6 +16,6 @@
   "dependencies": {
     "@dklb/mfe-config": "workspace:^",
     "@originjs/vite-plugin-federation": "^1.3.5",
-    "vite": "^5.4.2"
+    "vite": "^5.4.3"
   }
 }
