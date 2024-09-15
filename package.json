@@ -31,11 +31,11 @@
   "devDependencies": {
     "@clack/prompts": "^0.7.0",
     "@dklb/eslint-config": "workspace:^",
-    "@types/bun": "^1.1.8",
+    "@types/bun": "^1.1.9",
     "lint-staged": "^15.2.10",
-    "npm-run-all2": "^6.2.2",
+    "npm-run-all2": "^6.2.3",
     "simple-git-hooks": "^2.11.1",
-    "taze": "^0.16.7"
+    "taze": "^0.16.9"
   },
   "simple-git-hooks": {
     "pre-commit": "bunx lint-staged"

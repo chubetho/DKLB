@@ -8,7 +8,7 @@
   "devDependencies": {
     "@dklb/eslint-config": "workspace:^",
     "@dklb/tsconfig": "workspace:^",
-    "@playwright/test": "^1.46.1",
+    "@playwright/test": "^1.47.1",
     "@types/bun": "latest"
   }
 }
