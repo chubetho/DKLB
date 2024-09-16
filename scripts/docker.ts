@@ -20,7 +20,7 @@ ENTRYPOINT ["bun", "run", "./index.js"]
 
 async function dockerfileApps() {
   const cors = `
-      add_header 'Access-Control-Allow-Origin' 'http://localhost:8000';
+      add_header 'Access-Control-Allow-Origin' 'http://209.38.249.17:8000';
       add_header 'Access-Control-Allow-Methods' 'GET';
       add_header 'Access-Control-Allow-Headers' 'Content-Type';
 `

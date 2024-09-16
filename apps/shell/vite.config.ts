@@ -11,7 +11,7 @@ const remotes = Object.entries(rest).reduce((acc, [key, value]) => {
     return acc
 
   acc[`${key}_app`] = {
-    external: `http://localhost:${value.port}/assets/remoteEntry.js`,
+    external: `http://209.38.249.17:${value.port}/assets/remoteEntry.js`,
     format: 'esm',
     from: 'vite',
     externalType: 'url',

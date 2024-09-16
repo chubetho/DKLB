@@ -20,13 +20,13 @@
 
 1. Build `bun run build`
 2. Start `bun run start`
-3. Navigate to http://localhost:8000/
+3. Navigate to http://209.38.249.17:8000/
 
 ### Using docker
 
 1. Prepare docker `bun run prepare:docker`
 2. Build images `docker compose up --build`
-3. Navigate to http://localhost:8000/
+3. Navigate to http://209.38.249.17:8000/
 ## How to develop
 
 ### To create route in a app

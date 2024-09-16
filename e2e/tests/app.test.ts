@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 test('Navigation', async ({ page }) => {
-  await page.goto('http://localhost:8000/')
+  await page.goto('http://209.38.249.17:8000/')
 
   await expect(page).toHaveTitle('LOTTO Berlin')
 
@@ -10,7 +10,7 @@ test('Navigation', async ({ page }) => {
   await page.getByRole('link', { name: /Jetzt Spielen/ }).click()
 
   await page.waitForURL('**/normalschein')
-  expect(page.url()).toBe('http://localhost:8000/lotto6aus49/normalschein')
+  expect(page.url()).toBe('http://209.38.249.17:8000/lotto6aus49/normalschein')
   await expect(page.getByRole('heading', { name: /Normalschein/ })).toBeVisible()
 
   await page.goto('/lotto6aus49/quoten')

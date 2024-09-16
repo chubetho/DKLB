@@ -45,7 +45,7 @@ export function reloadShell() {
       if (error)
         return
 
-      fetch(`http://localhost:8000/__fullReload`)
+      fetch(`http://209.38.249.17:8000/__fullReload`)
     },
   }
 }
@@ -101,7 +101,7 @@ export function remoteFederation(config) {
     const entries = Object.entries(remotes)
     for (const [key, value] of entries) {
       _remotes[key] = {
-        external: `http://localhost:${value}/assets/remoteEntry.js`,
+        external: `http://209.38.249.17:${value}/assets/remoteEntry.js`,
         format: 'esm',
         from: 'vite',
         externalType: 'url',

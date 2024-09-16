@@ -11,7 +11,7 @@ export default defineConfig({
   workers: isCI ? 1 : undefined,
   reporter: [isCI ? ['html', { open: 'never' }] : ['line']],
   use: {
-    baseURL: 'http://localhost:8000',
+    baseURL: 'http://209.38.249.17:8000',
     trace: 'on-first-retry',
   },
 
