@@ -14,7 +14,7 @@ export function useApi() {
       return fetch(url, opts).then((response) => {
         map.set(url.toString(), response.clone())
         return response
-      })
+      }).catch(response => response)
     },
   })
 }
