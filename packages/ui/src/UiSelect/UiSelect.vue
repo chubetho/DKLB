@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import MdiMenuDown from '~icons/mdi/menu-down'
+import { computed } from 'vue'
 
 const props = defineProps<{
   options?: { label: string, value: string }[]

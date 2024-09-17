@@ -1,6 +1,6 @@
 import process from 'node:process'
 import { cancel, confirm, group, intro, outro, spinner, text } from '@clack/prompts'
-import { $, Glob, file, write } from 'bun'
+import { $, file, Glob, write } from 'bun'
 
 const { default: mfeConfig } = await import('../tools/mfe-config/index.js')
 

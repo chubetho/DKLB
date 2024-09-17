@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { UiButton, useDialog } from '@dklb/ui'
-import { GLOBAL_STATE_KEY } from '@dklb/utils'
-import { type Ref, defineAsyncComponent, h, inject } from 'vue'
-import { useTicketStore } from '../stores/ticket'
-import Layout from '../components/Layout.vue'
 import MdiCheck from '~icons/mdi/check'
 import MdiReload from '~icons/mdi/reload'
 import MdiTrashOutline from '~icons/mdi/trash-outline'
+import { defineAsyncComponent, h } from 'vue'
+import Layout from '../components/Layout.vue'
+import { useTicketStore } from '../stores/ticket'
 
 const LottoNumbers = defineAsyncComponent(() => import('home_app/LottoNumbers'))
 
@@ -66,9 +65,6 @@ function confirm() {
 
   store.save()
 }
-
-const logs = inject<Ref<string[]>>(GLOBAL_STATE_KEY)
-console.log('Log from lotto /normalschein:', logs?.value)
 </script>
 
 <template>

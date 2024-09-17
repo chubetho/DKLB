@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { UiSeparator } from '@dklb/ui'
-import { useRouter } from 'vue-router'
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const routes = computed(() => router.getRoutes().sort((a, b) => a.path.length - b.path.length))

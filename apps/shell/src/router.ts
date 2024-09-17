@@ -1,6 +1,6 @@
 import type { App } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
 import mfeConfig from '@dklb/mfe-config'
+import { createRouter, createWebHistory } from 'vue-router'
 import { loadRoutes } from '../src/utils/mfe'
 
 export async function setupRouter(app: App) {

@@ -1,25 +1,6 @@
 <script setup lang="ts">
 import { UiButton } from '@dklb/ui'
-import { useRouter } from 'vue-router'
-import { onMounted, onUnmounted } from 'vue'
 import MdiChevronRight from '~icons/mdi/chevron-right'
-
-let timer: ReturnType<typeof setInterval>
-
-onMounted(() => {
-  const isDev = import.meta.env.DEV
-  if (!isDev)
-    return
-
-  const router = useRouter()
-  timer = setInterval(() => {
-    router.push('/')
-  }, 500)
-})
-
-onUnmounted(() => {
-  clearInterval(timer)
-})
 </script>
 
 <template>

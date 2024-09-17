@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { GLOBAL_STATE_KEY } from '@dklb/utils'
-import { UiSelect } from '@dklb/ui'
-import { type Ref, inject, shallowRef, watch } from 'vue'
 import type { App } from '@dklb/eden'
 import { useApi } from '@dklb/eden'
-import { useFetchGcKey } from '../composables/fetch'
+import { UiSelect } from '@dklb/ui'
+import { shallowRef, watch } from 'vue'
 import Layout from '../components/Layout.vue'
+import { useFetchGcKey } from '../composables/fetch'
 
 const api = useApi()
 const { year, key, drawOpts, yearsOpts } = useFetchGcKey('lotto')
@@ -53,9 +52,6 @@ function formatWinningClass(n = 0) {
       return 'Unbekannt'
   }
 }
-
-const logs = inject<Ref<string[]>>(GLOBAL_STATE_KEY)
-console.log('Log from lotto /quoten:', logs?.value)
 </script>
 
 <template>

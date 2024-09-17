@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { UiButton, UiSelect, UiSeparator } from '@dklb/ui'
-import { shallowRef, watch } from 'vue'
 import { type App, useApi } from '@dklb/eden'
+import { UiButton, UiSelect, UiSeparator } from '@dklb/ui'
+import MdiChevronRight from '~icons/mdi/chevron-right'
+import { shallowRef, watch } from 'vue'
 import { useFetchGcKey } from '../composables/fetch'
 import IconLotto6aus49 from './icons/IconLotto6aus49.vue'
-import MdiChevronRight from '~icons/mdi/chevron-right'
 
 const api = useApi()
 const { year, key, drawOpts, yearsOpts } = useFetchGcKey('lotto')

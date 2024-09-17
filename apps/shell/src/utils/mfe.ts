@@ -1,5 +1,5 @@
-import { __federation_method_getRemote, __federation_method_unwrapDefault } from 'virtual:__federation__'
 import type { RouteRecordRaw } from 'vue-router'
+import { __federation_method_getRemote, __federation_method_unwrapDefault } from 'virtual:__federation__'
 
 interface ExposeRoute {
   path: string

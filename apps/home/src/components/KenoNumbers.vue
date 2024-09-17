@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { UiButton, UiSelect, UiSeparator } from '@dklb/ui'
 import { type App, useApi } from '@dklb/eden'
+import { UiButton, UiSelect, UiSeparator } from '@dklb/ui'
+import MdiChevronRight from '~icons/mdi/chevron-right'
 import { shallowRef, watch } from 'vue'
 import { useFetchGcKey } from '../composables/fetch'
 import IconKenoWhite from './icons/IconKenoWhite.vue'
-import MdiChevronRight from '~icons/mdi/chevron-right'
 
 const api = useApi()
 const { year, key, drawOpts, yearsOpts } = useFetchGcKey('keno')

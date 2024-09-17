@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { reloadShell, remoteFederation } from '@dklb/vite-plugins'
 import mfeConfig from '@dklb/mfe-config'
+import { reloadShell, remoteFederation } from '@dklb/vite-plugins'
+import vue from '@vitejs/plugin-vue'
 import Icons from 'unplugin-icons/vite'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [

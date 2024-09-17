@@ -1,9 +1,9 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import federation, { type RemotesObject } from '@originjs/vite-plugin-federation'
-import { reloadEndpoint } from '@dklb/vite-plugins'
 import mfeConfig from '@dklb/mfe-config'
+import { reloadEndpoint } from '@dklb/vite-plugins'
+import federation, { type RemotesObject } from '@originjs/vite-plugin-federation'
+import vue from '@vitejs/plugin-vue'
 import Icons from 'unplugin-icons/vite'
+import { defineConfig } from 'vite'
 
 const { shell, ...rest } = mfeConfig
 const remotes = Object.entries(rest).reduce((acc, [key, value]) => {

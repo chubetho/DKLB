@@ -1,5 +1,5 @@
-import { Elysia } from 'elysia'
 import { cors } from '@elysiajs/cors'
+import { Elysia } from 'elysia'
 import { numbers } from './routes/numbers'
 
 export const PORT = import.meta.env.PORT || 3000

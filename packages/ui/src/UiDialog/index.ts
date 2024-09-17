@@ -1,4 +1,4 @@
-import { Teleport, createVNode, defineComponent, h, render, shallowRef } from 'vue'
+import { createVNode, defineComponent, h, render, shallowRef, Teleport } from 'vue'
 import UiDialog from './UiDialog.vue'
 
 export { UiDialog }

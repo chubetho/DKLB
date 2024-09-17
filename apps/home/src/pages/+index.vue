@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { GLOBAL_STATE_KEY } from '@dklb/utils'
-import { type Ref, inject, ref } from 'vue'
-import LottoNumbers from '../components/LottoNumbers.vue'
+import MdiChevronRight from '~icons/mdi/chevron-right'
+import { ref } from 'vue'
 import EurojackpotNumbers from '../components/EurojackpotNumbers.vue'
 import GluecksSpiraleNumbers from '../components/GluecksSpiraleNumbers.vue'
 import KenoNumbers from '../components/KenoNumbers.vue'
-import TotoNumbers from '../components/TotoNumbers.vue'
 import Layout from '../components/Layout.vue'
-import MdiChevronRight from '~icons/mdi/chevron-right'
+import LottoNumbers from '../components/LottoNumbers.vue'
+import TotoNumbers from '../components/TotoNumbers.vue'
 
 type Type = (typeof types)[number]['value']
 
@@ -20,9 +19,6 @@ const types = [
 ] as const
 
 const type = ref<Type>('lotto')
-
-const logs = inject<Ref<string[]>>(GLOBAL_STATE_KEY)
-console.log('Log from home /:', logs?.value)
 </script>
 
 <template>

@@ -7,8 +7,8 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
-import fastGlob from 'fast-glob'
 import federation from '@originjs/vite-plugin-federation'
+import fastGlob from 'fast-glob'
 
 const { globSync } = fastGlob
 
