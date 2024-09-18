@@ -69,46 +69,45 @@ function formatWinningClass(n = 0) {
     </div>
 
     <template v-if="result">
-      <div>
-        <table class="w-full">
-          <colgroup>
-            <col class="w-1/3">
-            <col class="w-1/3">
-            <col class="w-1/3">
-          </colgroup>
-          <thead class="border-b">
-            <tr>
-              <th class="text-left font-normal text-lg text-primary py-3">
-                Gewinnklasse
-              </th>
-              <th class="text-right font-normal text-lg text-primary py-3">
-                Anzahl der Gewinner
-              </th>
-              <th class="text-right font-normal text-lg text-primary py-3 pr-6">
-                Gewinnquote
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="{ winningClass, numberOfWins, amount }, index in result.lottoOdds1"
-              :key="index"
-              class="odd:bg-[#f2f2f2]"
-            >
-              <td class="text-left py-3 px-6 text-sm">
-                <span class="mr-6">{{ index + 1 }}</span>
-                <span class="font-bold">({{ formatWinningClass(winningClass) }})</span>
-              </td>
-              <td class="text-right py-3 px-6 text-sm">
-                {{ formatNumber(numberOfWins) }}
-              </td>
-              <td class="text-right py-3 px-6 text-sm">
-                {{ formatCurrency(amount) }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table class="w-full">
+        <colgroup>
+          <col class="w-1/3">
+          <col class="w-1/3">
+          <col class="w-1/3">
+        </colgroup>
+        <thead class="border-b">
+          <tr>
+            <th class="text-left font-normal text-lg text-primary py-3">
+              Gewinnklasse
+            </th>
+            <th class="text-right font-normal text-lg text-primary py-3">
+              Anzahl der Gewinner
+            </th>
+            <th class="text-right font-normal text-lg text-primary py-3 pr-6">
+              Gewinnquote
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr
+            v-for="{ winningClass, numberOfWins, amount }, index in result.lottoOdds1"
+            :key="index"
+            class="odd:bg-[#f2f2f2]"
+          >
+            <td class="text-left py-3 px-6 text-sm">
+              <span class="mr-6">{{ index + 1 }}</span>
+              <span class="font-bold">({{ formatWinningClass(winningClass) }})</span>
+            </td>
+            <td class="text-right py-3 px-6 text-sm">
+              {{ formatNumber(numberOfWins) }}
+            </td>
+            <td class="text-right py-3 px-6 text-sm">
+              {{ formatCurrency(amount) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
       <p
         v-if="result.lottoTurnover"
@@ -119,6 +118,16 @@ function formatWinningClass(n = 0) {
         </span>
         <span>* Jackpot-Vortrag / max. Gewinnbetrag: 50 Mio. €</span>
       </p>
+    </template>
+
+    <template v-else>
+      <ul class="flex gap-2 flex-col pt-10">
+        <li
+          v-for="i in 9"
+          :key="i"
+          class="bg-gray-100 animate-pulse h-10"
+        />
+      </ul>
     </template>
   </Layout>
 </template>
